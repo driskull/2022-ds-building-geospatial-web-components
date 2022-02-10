@@ -1,6 +1,6 @@
 # Building Geospatial Web Components
 
-[Preview presentation](https://driskull.github.io/2022-ds-building-geospatial-web-components/slides/#/)
+[Preview presentation](https://driskull.github.io/2022-ds-building-geospatial-web-components)
 
 To be presented at [Esri Developer Summit 2022](http://www.esri.com/events/devsummit).
 
