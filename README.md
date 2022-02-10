@@ -1,38 +1,11 @@
-# Esri reveal.js
+# ArcGIS API for JavaScript: Build a custom UI for API widgets
 
-> Esri branded reveal.js slide deck templates
+[Preview presentation](https://driskull.github.io/2022-ds-building-geospatial-web-components/slides/#/)
 
-A jumpstart for folks that want to give a presentation using [reveal.js](https://github.com/hakimel/reveal.js/) using a slide deck template that matches the ones for PowerPoint.
+To be presented at [Esri Developer Summit 2022](http://www.esri.com/events/devsummit).
 
-[![Project preview](img/project-preview.gif)](https://esri.github.io/reveal.js/dev-summit-2022.html)
+Presenters: Dhrumil Shah, Ganesh Subbiah, Matt Driscoll
 
-Live demos:
+Thursday 10:30 a.m. — 11:30 a.m.
 
-* [2022 Federal GIS Conference](https://esri.github.io/reveal.js/fed-gis-2022.html)
-* [2022 Developer Summit](https://esri.github.io/reveal.js/dev-summit-2022.html)
-
-For archived older versions, please see [releases](https://github.com/esri/reveal.js/releases).
-
-For a visualization of all the template designs through the years, see [esri-reveal.js-history](https://gavinr.github.io/esri-reveal.js-history/)
-
-## Documentation
-
-See: [reveal.js documentation](https://github.com/hakimel/reveal.js/blob/master/README.md)
-
-## License
-
-Copyright (c) 2018 Esri
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-> http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-A copy of the license is available in the repository's [LICENSE](./LICENSE) file.
+HYBRID SESSION | In this session, you will learn how Esri Web applications leverage the native web components to build re-usable, shareable, framework agnostic geospatial UI components. We will look at an example of how to build a geospatial web component using stencil.js. Also, we will look at how a monolithic geospatial web application like Map Viewer was transformed to a micro front-end leveraging web components.
