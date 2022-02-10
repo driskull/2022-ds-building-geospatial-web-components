@@ -1,4 +1,4 @@
-# ArcGIS API for JavaScript: Build a custom UI for API widgets
+# Building Geospatial Web Components
 
 [Preview presentation](https://driskull.github.io/2022-ds-building-geospatial-web-components/slides/#/)
 
