@@ -1,0 +1,11 @@
+.switch {
+  background-color: #ffffff;
+  display: flex;
+  padding: 1rem 1rem 0rem;
+  border-bottom: solid 1px #cacaca;
+}
+
+.content {
+  margin: 0 0 1rem;
+  padding: 0;
+}
