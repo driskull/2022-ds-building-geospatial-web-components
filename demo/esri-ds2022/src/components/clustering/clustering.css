@@ -1,0 +1,45 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
+  border-top: solid 1px #cacaca;
+}
+
+.switch {
+  background-color: #ffffff;
+  display: flex;
+  padding: 1rem 1rem 0.25rem;
+  border-bottom: solid 1px #cacaca;
+}
+
+.slider {
+  background-color: #ffffff;
+  border-bottom: solid 1px #cacaca;
+  padding: 1rem;
+}
+
+.slider-heading {
+  display: inline-block;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+}
+
+.slider-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: row wrap;
+}
+
+.slider-label {
+  display: inline-block;
+  padding: 0.2rem 0;
+  font-size: 0.75rem;
+  order: 2;
+}
+
+.slider-slider {
+  display: inline-block;
+  width: 100%;
+  order: 1;
+}

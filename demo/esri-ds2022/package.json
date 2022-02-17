@@ -1,0 +1,32 @@
+{
+  "name": "esri-ds2022",
+  "version": "0.0.1",
+  "description": "Esri Dev Summit 2022: Building Geospatial Web Components",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/esri-ds2022/esri-ds2022.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhrumil83/esri-ds2022"
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "generate": "stencil generate"
+  },
+  "dependencies": {
+    "@arcgis/core": "^4.22.2",
+    "@esri/calcite-components": "1.0.0-beta.76",
+    "@stencil/core": "^2.13.0"
+  },
+  "license": "MIT"
+}
