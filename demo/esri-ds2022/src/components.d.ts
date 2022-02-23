@@ -39,8 +39,8 @@ export namespace Components {
         "labelClass": __esri.LabelClass;
         "labelContentRefElement": HTMLElement;
     }
-    interface EsriDs2022Map {
-        "title": string;
+    interface EsriDs2022MapViewer {
+        "mapTitle": string;
     }
 }
 declare global {
@@ -68,18 +68,18 @@ declare global {
         prototype: HTMLEsriDs2022LabelContentStyleElement;
         new (): HTMLEsriDs2022LabelContentStyleElement;
     };
-    interface HTMLEsriDs2022MapElement extends Components.EsriDs2022Map, HTMLStencilElement {
+    interface HTMLEsriDs2022MapViewerElement extends Components.EsriDs2022MapViewer, HTMLStencilElement {
     }
-    var HTMLEsriDs2022MapElement: {
-        prototype: HTMLEsriDs2022MapElement;
-        new (): HTMLEsriDs2022MapElement;
+    var HTMLEsriDs2022MapViewerElement: {
+        prototype: HTMLEsriDs2022MapViewerElement;
+        new (): HTMLEsriDs2022MapViewerElement;
     };
     interface HTMLElementTagNameMap {
         "esri-ds2022-clustering": HTMLEsriDs2022ClusteringElement;
         "esri-ds2022-label": HTMLEsriDs2022LabelElement;
         "esri-ds2022-label-content": HTMLEsriDs2022LabelContentElement;
         "esri-ds2022-label-content-style": HTMLEsriDs2022LabelContentStyleElement;
-        "esri-ds2022-map": HTMLEsriDs2022MapElement;
+        "esri-ds2022-map-viewer": HTMLEsriDs2022MapViewerElement;
     }
 }
 declare namespace LocalJSX {
@@ -132,15 +132,15 @@ declare namespace LocalJSX {
         "onCloseLabelPopovers"?: (event: CustomEvent<any>) => void;
         "onLabelContentStyleChanges"?: (event: CustomEvent<any>) => void;
     }
-    interface EsriDs2022Map {
-        "title"?: string;
+    interface EsriDs2022MapViewer {
+        "mapTitle"?: string;
     }
     interface IntrinsicElements {
         "esri-ds2022-clustering": EsriDs2022Clustering;
         "esri-ds2022-label": EsriDs2022Label;
         "esri-ds2022-label-content": EsriDs2022LabelContent;
         "esri-ds2022-label-content-style": EsriDs2022LabelContentStyle;
-        "esri-ds2022-map": EsriDs2022Map;
+        "esri-ds2022-map-viewer": EsriDs2022MapViewer;
     }
 }
 export { LocalJSX as JSX };
@@ -151,7 +151,7 @@ declare module "@stencil/core" {
             "esri-ds2022-label": LocalJSX.EsriDs2022Label & JSXBase.HTMLAttributes<HTMLEsriDs2022LabelElement>;
             "esri-ds2022-label-content": LocalJSX.EsriDs2022LabelContent & JSXBase.HTMLAttributes<HTMLEsriDs2022LabelContentElement>;
             "esri-ds2022-label-content-style": LocalJSX.EsriDs2022LabelContentStyle & JSXBase.HTMLAttributes<HTMLEsriDs2022LabelContentStyleElement>;
-            "esri-ds2022-map": LocalJSX.EsriDs2022Map & JSXBase.HTMLAttributes<HTMLEsriDs2022MapElement>;
+            "esri-ds2022-map-viewer": LocalJSX.EsriDs2022MapViewer & JSXBase.HTMLAttributes<HTMLEsriDs2022MapViewerElement>;
         }
     }
 }

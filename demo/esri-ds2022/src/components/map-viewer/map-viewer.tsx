@@ -4,18 +4,18 @@ import MapView from "@arcgis/core/views/MapView";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
 
 @Component({
-  tag: "esri-ds2022-map",
-  styleUrl: "map.css",
+  tag: "esri-ds2022-map-viewer",
+  styleUrl: "map-viewer.css",
   scoped: true
 })
-export class EsriMap {
+export class MapViewer {
+  @Prop() mapTitle = "Geospatial web components demo";
+
+  @State() hasChanges = false;
+
   mapView: __esri.MapView;
 
   featureLayer: __esri.FeatureLayer;
-
-  @Prop() title = "Geospatial web components demo";
-
-  @State() hasChanges = false;
 
   async createMap(): Promise<void> {
     this.featureLayer = new FeatureLayer({
@@ -50,8 +50,8 @@ export class EsriMap {
   render() {
     return (
       <calcite-shell>
-        <div id="viewDiv" ref={(el) => (this.mapView.container = el)} class="map" />
-        <h2 slot="header">{this.title}</h2>
+        <div ref={(el) => (this.mapView.container = el)} class="map" />
+        <h2 slot="header">{this.mapTitle}</h2>
         <calcite-shell-panel slot="primary-panel" position="start" collapsed={true}>
           <calcite-action-bar slot="action-bar">
             <calcite-action

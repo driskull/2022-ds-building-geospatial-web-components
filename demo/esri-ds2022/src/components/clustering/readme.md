@@ -24,7 +24,7 @@
 
 ### Used by
 
- - [esri-ds2022-map](../map)
+ - [esri-ds2022-map-viewer](../map-viewer)
 
 ### Depends on
 
@@ -32,9 +32,9 @@
 - calcite-switch
 - calcite-slider
 - calcite-button
+- calcite-flow
 - calcite-panel
 - [esri-ds2022-label](../label)
-- calcite-flow
 
 ### Graph
 ```mermaid
@@ -43,9 +43,9 @@ graph TD;
   esri-ds2022-clustering --> calcite-switch
   esri-ds2022-clustering --> calcite-slider
   esri-ds2022-clustering --> calcite-button
+  esri-ds2022-clustering --> calcite-flow
   esri-ds2022-clustering --> calcite-panel
   esri-ds2022-clustering --> esri-ds2022-label
-  esri-ds2022-clustering --> calcite-flow
   calcite-slider --> calcite-graph
   calcite-button --> calcite-loader
   calcite-button --> calcite-icon
@@ -102,7 +102,7 @@ graph TD;
   calcite-block --> calcite-action-menu
   calcite-handle --> calcite-icon
   calcite-fab --> calcite-button
-  esri-ds2022-map --> esri-ds2022-clustering
+  esri-ds2022-map-viewer --> esri-ds2022-clustering
   style esri-ds2022-clustering fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
