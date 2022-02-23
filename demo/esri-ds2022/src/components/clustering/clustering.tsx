@@ -29,24 +29,27 @@ export class Clustering {
    */
   @Event() internalFeatureReductionUpdated: EventEmitter;
 
-  // Need this to rerender on any change since we are making changes to layer.featureReduction object, which will not trigger a rerender.
-  @State() reRender: boolean;
+  @State() hasFeatureReduction: boolean = null;
+
+  @State() clusterRadius: number = 37.5; // 50px
+
+  @State() clusterSizeMin: number = null;
+
+  @State() clusterSizeMax: number = 37.5; // 50px
+
+  @State() showLabelPanel = false;
 
   clusteringRadiusMinVal = 9; // 12px
 
   clusteringRadiusMaxVal = 90; // 120px
 
-  clusteringRadiusInitialVal = 37.5; // 50px
-
   clusteringSizeMinVal = 9; // 12px
 
   clusteringSizeMaxVal = 90; // 120px
 
-  clusteringSizeMaxInitialVal = 37.5; // 50px
-
   tempFeatureReduction: __esri.FeatureReductionCluster;
 
-  clusterFlow: HTMLCalciteFlowElement;
+  labelPanel: HTMLCalcitePanelElement;
 
   // Called after every re-render. Not called on initial draw.
   componentDidUpdate(): void {
@@ -63,6 +66,53 @@ export class Clustering {
     this.featureReductionUpdated.emit();
   }
 
+  toggleClustering = async (event: CustomEvent) => {
+    const checked = (event.target as HTMLCalciteSwitchElement).checked;
+    if (checked) {
+      if (this.tempFeatureReduction) {
+        this.layer.featureReduction = this.tempFeatureReduction;
+      } else {
+        // setup featureReduction
+        const labelSchemes = await clusterLabelCreator.getLabelSchemes({
+          layer: this.layer,
+          view: this.mapView
+        });
+        this.layer.featureReduction = new FeatureReductionCluster({
+          clusterMinSize: labelSchemes?.primaryScheme?.clusterMinSize || this.clusteringSizeMinVal,
+          clusterMaxSize: this.clusterSizeMax,
+          clusterRadius: this.clusterRadius,
+          labelsVisible: true,
+          labelingInfo: labelSchemes?.primaryScheme?.labelingInfo || null
+        });
+      }
+    } else {
+      this.tempFeatureReduction = this.layer.featureReduction as __esri.FeatureReductionCluster;
+      this.layer.featureReduction = null;
+    }
+
+    this.hasFeatureReduction = !!this.layer.featureReduction;
+  };
+
+  clusterRadiusChange = (event: CustomEvent) => {
+    const value = (event.target as HTMLCalciteSliderElement).value;
+
+    (this.layer.featureReduction as __esri.FeatureReductionCluster).clusterRadius = value;
+
+    this.clusterRadius = value;
+  };
+
+  clusterSizeChange = (event: CustomEvent) => {
+    const slider = event.target as HTMLCalciteSliderElement;
+
+    (this.layer.featureReduction as __esri.FeatureReductionCluster).clusterMinSize =
+      slider.minValue;
+    (this.layer.featureReduction as __esri.FeatureReductionCluster).clusterMaxSize =
+      slider.maxValue;
+
+    this.clusterSizeMin = slider.minValue;
+    this.clusterSizeMax = slider.maxValue;
+  };
+
   // rendor methods
   render(): VNode {
     // enable disable clustering
@@ -72,33 +122,7 @@ export class Clustering {
         <calcite-switch
           scale="s"
           checked={(this.layer.featureReduction as __esri.FeatureReductionCluster) ? true : false}
-          onCalciteSwitchChange={async (event: CustomEvent) => {
-            const checked = (event.target as HTMLCalciteSwitchElement).checked;
-            if (checked) {
-              if (this.tempFeatureReduction) {
-                this.layer.featureReduction = this.tempFeatureReduction;
-              } else {
-                // setup featureReduction
-                const labelSchemes = await clusterLabelCreator.getLabelSchemes({
-                  layer: this.layer,
-                  view: this.mapView
-                });
-                this.layer.featureReduction = new FeatureReductionCluster({
-                  clusterMinSize:
-                    labelSchemes?.primaryScheme?.clusterMinSize || this.clusteringSizeMinVal,
-                  clusterMaxSize: this.clusteringSizeMaxInitialVal,
-                  clusterRadius: this.clusteringRadiusInitialVal,
-                  labelsVisible: true,
-                  labelingInfo: labelSchemes?.primaryScheme?.labelingInfo || null
-                });
-              }
-            } else {
-              this.tempFeatureReduction = this.layer
-                .featureReduction as __esri.FeatureReductionCluster;
-              this.layer.featureReduction = null;
-            }
-            this.reRender = !this.reRender;
-          }}
+          onCalciteSwitchChange={this.toggleClustering}
         />
       </calcite-label>
     );
@@ -115,15 +139,10 @@ export class Clustering {
             max={this.clusteringRadiusMaxVal}
             value={
               (this.layer.featureReduction as __esri.FeatureReductionCluster)?.clusterRadius ??
-              this.clusteringRadiusInitialVal
+              this.clusterRadius
             }
             step={1}
-            onCalciteSliderInput={(event: CustomEvent) => {
-              (this.layer.featureReduction as __esri.FeatureReductionCluster).clusterRadius = (
-                event.target as HTMLCalciteSliderElement
-              ).value;
-              this.reRender = !this.reRender;
-            }}
+            onCalciteSliderInput={this.clusterRadiusChange}
           />
           <label class="slider-label">High</label>
         </div>
@@ -149,14 +168,7 @@ export class Clustering {
               this.clusteringSizeMaxVal
             }
             step={1}
-            onCalciteSliderInput={(event: CustomEvent) => {
-              const sliderVal = event.target as HTMLCalciteSliderElement;
-              (this.layer.featureReduction as __esri.FeatureReductionCluster).clusterMinSize =
-                sliderVal.minValue;
-              (this.layer.featureReduction as __esri.FeatureReductionCluster).clusterMaxSize =
-                sliderVal.maxValue;
-              this.reRender = !this.reRender;
-            }}
+            onCalciteSliderInput={this.clusterSizeChange}
           />
           <label class="slider-label">High</label>
         </div>
@@ -172,23 +184,7 @@ export class Clustering {
         iconEnd="chevronRight"
         alignment="icon-end-space-between"
         width="full"
-        onClick={() => {
-          // create calcite panel and insert label component.
-          const labelPanel = document.createElement("calcite-panel") as HTMLCalcitePanelElement;
-          labelPanel.heading = "Label features";
-          labelPanel.summary = this.layer.title || "";
-          const labelComponent = document.createElement("esri-ds2022-label");
-          labelComponent.layer = this.layer;
-          labelComponent.mapView = this.mapView;
-          labelComponent.displayType = DisplayType.cluster;
-          labelComponent.labelPanel = labelPanel;
-          labelPanel.appendChild(labelComponent);
-          // when label component is updated
-          labelComponent.addEventListener("labelUpdated", () => {
-            this.reRender = !this.reRender;
-          });
-          this.clusterFlow.appendChild(labelPanel);
-        }}
+        onClick={() => (this.showLabelPanel = true)}
       >
         Cluster label
       </calcite-button>
@@ -196,7 +192,7 @@ export class Clustering {
 
     return (
       <Host>
-        <calcite-flow ref={(el) => (this.clusterFlow = el)}>
+        <calcite-flow>
           <calcite-panel heading="Clustering" summary={this.layer.title}>
             {clusterSwitch}
             {/* only show rest of the option when cluster is enabled */}
@@ -208,6 +204,21 @@ export class Clustering {
               </div>
             )}
           </calcite-panel>
+          {this.showLabelPanel ? (
+            <calcite-panel
+              heading="Label features"
+              summary={this.layer.title || ""}
+              ref={(el) => (this.labelPanel = el)}
+              onCalcitePanelBackClick={() => (this.showLabelPanel = false)}
+            >
+              <esri-ds2022-label
+                layer={this.layer}
+                mapView={this.mapView}
+                displayType={DisplayType.cluster}
+                labelPanel={this.labelPanel}
+              />
+            </calcite-panel>
+          ) : null}
         </calcite-flow>
       </Host>
     );
