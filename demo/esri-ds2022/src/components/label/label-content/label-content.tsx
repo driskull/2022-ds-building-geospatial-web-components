@@ -85,6 +85,8 @@ export class LabelContent {
   }
 
   addScaleRangeSlider(): void {
+    // todo: create this on connectedCallback and destroy on disconnectedCallback.
+    // todo: Watch props and set them to the slider instead of on componentDidLoad
     const scaleRangeSlider = new ScaleRangeSlider({
       container: this.visibleRangeSlider,
       view: this.mapView,
