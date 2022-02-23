@@ -80,13 +80,12 @@ export class Label {
   @Listen("internalLabelUpdated")
   internalLabelUpdatedHandler(event: CustomEvent<boolean>): void {
     event.stopPropagation();
-    const labelingInfo = this.labelingInfo;
     if (this.displayType === DisplayType.cluster) {
-      (this.layer.featureReduction as __esri.FeatureReductionCluster).labelingInfo = labelingInfo
-        ? [...labelingInfo]
-        : [];
+      (this.layer.featureReduction as __esri.FeatureReductionCluster).labelingInfo = [
+        ...this.labelingInfo
+      ];
     } else {
-      this.layer.labelingInfo = labelingInfo ? [...labelingInfo] : [];
+      this.layer.labelingInfo = [...this.labelingInfo];
     }
     // for external clients
     this.labelUpdated.emit();
