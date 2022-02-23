@@ -19,6 +19,7 @@ export class Label {
    */
   @Prop() layer: __esri.FeatureLayer;
 
+  // todo: why are these internal?
   /**
    * @internal feature or cluster
    */
@@ -44,6 +45,7 @@ export class Label {
    */
   @Event() closeLabelPopovers: EventEmitter;
 
+  // todo: move these to separate state properties
   // Need this to rerender on any change since we are making changes to label object, which will not trigger a rerender.
   @State() reRender: boolean;
 
@@ -55,6 +57,7 @@ export class Label {
 
   componentWillLoad(): void {
     // handle both feature and cluster labeling info
+    // todo: maybe this shoud happen when watching displayType and layer instead of on load?
     this.labelingInfo =
       this.displayType === DisplayType.feature
         ? this.layer.labelingInfo
@@ -63,6 +66,7 @@ export class Label {
 
   componentDidLoad(): void {
     // add add label button to either label panel or the label panel via clustering component
+    // todo: move into render method
     this.addLabelBtn = this.getAddLabelBtn();
     if (this.labelPanel) {
       this.labelPanel.appendChild(this.addLabelBtn);
@@ -128,6 +132,7 @@ export class Label {
   }
 
   getAddLabelBtn(): HTMLCalciteFabElement {
+    // todo: move into render method
     const calciteFab = document.createElement("calcite-fab") as HTMLCalciteFabElement;
     calciteFab.icon = "plus";
     calciteFab.slot = "fab";
@@ -159,6 +164,7 @@ export class Label {
           <calcite-switch
             scale="s"
             checked={this.getLabelsVisible()}
+            // todo: move into class function
             onCalciteSwitchChange={async (event: CustomEvent) => {
               this.closeLabelPopovers.emit();
               const checked = (event.target as HTMLCalciteSwitchElement).checked;
@@ -174,17 +180,14 @@ export class Label {
           />
         </calcite-label>
         {this.getLabelsVisible() && (
-          <div class="content">
-            {this.labelingInfo?.map((label) => {
-              return this.labelContent(label);
-            })}
-          </div>
+          <div class="content">{this.labelingInfo?.map(this.labelContent)}</div>
         )}
       </div>
     );
 
     return (
       // labelPanel => coming from cluster panel
+      // todo: move into CSS class like: class={{noLabelPanel: !labelPanel }} no inline styles
       <Host style={!this.labelPanel && { display: "flex", flex: "1 1 auto", overflow: "hidden" }}>
         {this.labelPanel ? (
           <div>{labelSwitchAndContent}</div>
@@ -210,6 +213,7 @@ export class Label {
       mapView={this.mapView}
       layer={this.layer}
       displayType={this.displayType}
+      // todo: move into class function
       onLabelContentDeleted={() => {
         this.closeLabelPopovers.emit();
         this.labelingInfo = this.labelingInfo.filter(

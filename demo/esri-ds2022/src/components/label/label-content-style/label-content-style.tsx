@@ -37,6 +37,7 @@ export class LabelContentStyle {
           min={5}
           max={125}
           value={`${(this.labelClass.symbol as __esri.TextSymbol).font.size / 0.75 || 0}`}
+          // todo: move into class function
           onCalciteInputInput={(event: CustomEvent): void => {
             (this.labelClass.symbol as __esri.TextSymbol).font.size =
               Number(event.detail.value) * 0.75;
@@ -55,6 +56,7 @@ export class LabelContentStyle {
           hideSaved={true}
           scale="m"
           value={this.labelClass.symbol.color?.toHex() || "#ffffff"}
+          // todo: move into class function
           onCalciteColorPickerInput={(event: any): void => {
             this.labelClass.symbol.color = event.target?.value;
             this.labelContentStyleChanges.emit();
@@ -75,6 +77,7 @@ export class LabelContentStyle {
             value={`${(this.labelClass.symbol as __esri.TextSymbol).xoffset || 0}`}
             min={-20}
             max={20}
+            // todo: move into class function
             onCalciteInputInput={(event: CustomEvent): void => {
               (this.labelClass.symbol as __esri.TextSymbol).xoffset = Number(event.detail.value);
               this.labelContentStyleChanges.emit();
@@ -90,6 +93,7 @@ export class LabelContentStyle {
             value={`${(this.labelClass.symbol as __esri.TextSymbol).yoffset || 0}`}
             min={-20}
             max={20}
+            // todo: move into class function
             onCalciteInputInput={(event: CustomEvent): void => {
               (this.labelClass.symbol as __esri.TextSymbol).yoffset = Number(event.detail.value);
               this.labelContentStyleChanges.emit();
@@ -110,6 +114,7 @@ export class LabelContentStyle {
           offsetDistance={-Math.round(this.labelContentRefElement.getBoundingClientRect().width)}
           offsetSkidding={0}
           label=""
+          // todo: move into css class
           style={{
             zIndex: "100"
           }}

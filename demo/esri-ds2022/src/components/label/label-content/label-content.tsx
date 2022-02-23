@@ -49,6 +49,7 @@ export class LabelContent {
   // emit when main panel should be disabled/enabled
   @Event() disableLabelPanel: EventEmitter;
 
+  // todo: split up into multiple states
   // Need this to rerender on any change since we are making changes to labelclass object, which will not trigger a rerender.
   @State() reRender = true;
 
@@ -115,6 +116,7 @@ export class LabelContent {
         <calcite-dropdown
           ref={(el) => (this.dropdownElement = el)}
           maxItems={12}
+          // todo: move into class function
           onCalciteDropdownSelect={(): void => {
             this.closeLabelPopovers.emit();
             let selectedItem = this.dropdownElement?.selectedItems?.[0]?.id;
@@ -162,6 +164,7 @@ export class LabelContent {
           iconEnd="chevronDown"
           alignment="icon-end-space-between"
           width="full"
+          // todo: move into class function
           onClick={() => {
             this.closeLabelPopovers.emit();
             if (!this.labelStyle) {
@@ -196,9 +199,7 @@ export class LabelContent {
           open={true}
           intlCollapse="Collapse"
           intlExpand="Expand"
-          onCalciteBlockToggle={() => {
-            this.closeLabelPopovers.emit();
-          }}
+          onCalciteBlockToggle={() => this.closeLabelPopovers.emit()}
         >
           <calcite-icon slot="icon" scale="m" icon="label" />
           <calcite-action
@@ -206,9 +207,7 @@ export class LabelContent {
             icon="trash"
             text="Delete"
             appearance="clear"
-            onClick={() => {
-              this.labelContentDeleted.emit();
-            }}
+            onClick={() => this.labelContentDeleted.emit()}
           />
           {this.displayType === DisplayType.feature && labelField}
           {labelStyle}
