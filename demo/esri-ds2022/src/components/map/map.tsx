@@ -1,4 +1,4 @@
-import { Component, h, State } from "@stencil/core";
+import { Component, h, Prop, State } from "@stencil/core";
 import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
@@ -12,6 +12,8 @@ export class EsriMap {
   mapView: __esri.MapView;
 
   featureLayer: __esri.FeatureLayer;
+
+  @Prop() title = "Geospatial web components demo";
 
   @State() hasChanges = false;
 
@@ -49,7 +51,7 @@ export class EsriMap {
     return (
       <calcite-shell>
         <div id="viewDiv" ref={(el) => (this.mapView.container = el)} class="map" />
-        <h2 slot="header">Geospatial web components demo</h2>
+        <h2 slot="header">{this.title}</h2>
         <calcite-shell-panel slot="primary-panel" position="start" collapsed={true}>
           <calcite-action-bar slot="action-bar">
             <calcite-action
