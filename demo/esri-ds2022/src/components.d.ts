@@ -40,6 +40,7 @@ export namespace Components {
         "labelContentRefElement": HTMLElement;
     }
     interface EsriDs2022Map {
+        "title": string;
     }
 }
 declare global {
@@ -132,6 +133,7 @@ declare namespace LocalJSX {
         "onLabelContentStyleChanges"?: (event: CustomEvent<any>) => void;
     }
     interface EsriDs2022Map {
+        "title"?: string;
     }
     interface IntrinsicElements {
         "esri-ds2022-clustering": EsriDs2022Clustering;
