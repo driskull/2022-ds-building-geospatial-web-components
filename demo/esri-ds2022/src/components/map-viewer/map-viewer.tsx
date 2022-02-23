@@ -4,11 +4,11 @@ import MapView from "@arcgis/core/views/MapView";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
 
 @Component({
-  tag: "esri-ds2022-map",
-  styleUrl: "map.css",
+  tag: "esri-ds2022-map-viewer",
+  styleUrl: "map-viewer.css",
   scoped: true
 })
-export class EsriMap {
+export class MapViewer {
   @Prop() mapTitle = "Geospatial web components demo";
 
   @State() hasChanges = false;
