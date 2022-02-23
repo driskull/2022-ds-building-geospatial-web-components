@@ -1,4 +1,4 @@
-import { Component, h, Host } from "@stencil/core";
+import { Component, h, Host, State } from "@stencil/core";
 import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
@@ -13,63 +13,60 @@ export class EsriMap {
 
   featureLayer: __esri.FeatureLayer;
 
-  contexualPanel: HTMLCalciteShellPanelElement;
+  @State() hasChanges = false;
 
-  saveButton: HTMLCalciteActionElement;
-
-  async componentDidLoad() {
-    // display map and add cluster panel
-    const map = new Map({
-      basemap: "satellite"
-    });
-    this.mapView = new MapView({
-      container: "viewDiv",
-      map: map
-    });
+  async createMap(): Promise<void> {
     this.featureLayer = new FeatureLayer({
       url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Places_of_Worship_India/FeatureServer/0"
     });
-    map.add(this.featureLayer);
-    this.mapView.goTo((await this.featureLayer.when()).fullExtent);
-    const clusterComponent = document.createElement("esri-ds2022-clustering");
-    clusterComponent.mapView = this.mapView;
-    clusterComponent.layer = this.featureLayer;
-    // listen to featureReductionUpdated event and show the save indicator.
-    // save does not work in this example.
-    clusterComponent.addEventListener("featureReductionUpdated", () => {
-      this.saveButton.indicator = true;
+
+    const map = new Map({
+      basemap: "satellite",
+      layers: [this.featureLayer]
     });
-    this.contexualPanel.appendChild(clusterComponent);
+
+    this.mapView = new MapView({
+      map
+    });
+
+    this.mapView.goTo((await this.featureLayer.when()).fullExtent);
+  }
+
+  destroyMap(): void {
+    this.featureLayer?.destroy();
+    this.mapView?.destroy();
+  }
+
+  connectedCallback() {
+    this.createMap();
+  }
+
+  disconnectedCallback() {
+    this.destroyMap();
   }
 
   render() {
     return (
       <Host>
         <calcite-shell>
-          <div id="viewDiv" class="map" />
+          <div id="viewDiv" ref={(el) => (this.mapView.container = el)} class="map" />
           <h2 slot="header"> Geospatial web components demo</h2>
           <calcite-shell-panel slot="primary-panel" position="start" collapsed={true}>
             <calcite-action-bar slot="action-bar">
               <calcite-action
-                ref={(el) => {
-                  this.saveButton = el;
-                }}
                 text="Save demo"
-                indicator={false}
+                indicator={this.hasChanges}
                 icon="save"
-                onClick={() => {
-                  this.saveButton.indicator = false;
-                }}
+                onClick={() => (this.hasChanges = false)}
               />
             </calcite-action-bar>
           </calcite-shell-panel>
-          <calcite-shell-panel
-            slot="contextual-panel"
-            position="end"
-            ref={(el) => {
-              this.contexualPanel = el;
-            }}
-          >
+          <calcite-shell-panel slot="contextual-panel" position="end">
+            <esri-ds2022-clustering
+              mapView={this.mapView}
+              layer={this.featureLayer}
+              onFeatureReductionUpdated={() => (this.hasChanges = true)}
+            ></esri-ds2022-clustering>
             <calcite-action-bar slot="action-bar" />
           </calcite-shell-panel>
         </calcite-shell>
