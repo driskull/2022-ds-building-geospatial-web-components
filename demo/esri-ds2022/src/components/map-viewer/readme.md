@@ -5,44 +5,54 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property   | Attribute   | Description | Type     | Default                            |
+| ---------- | ----------- | ----------- | -------- | ---------------------------------- |
+| `mapTitle` | `map-title` |             | `string` | `"Geospatial web components demo"` |
+
+
 ## Dependencies
 
 ### Depends on
 
-- [esri-ds2022-clustering](../clustering)
 - calcite-shell
 - calcite-shell-panel
 - calcite-action-bar
 - calcite-action
+- [esri-ds2022-clustering](../clustering)
 
 ### Graph
 ```mermaid
 graph TD;
-  esri-ds2022-map --> esri-ds2022-clustering
-  esri-ds2022-map --> calcite-shell
-  esri-ds2022-map --> calcite-shell-panel
-  esri-ds2022-map --> calcite-action-bar
-  esri-ds2022-map --> calcite-action
+  esri-ds2022-map-viewer --> calcite-shell
+  esri-ds2022-map-viewer --> calcite-shell-panel
+  esri-ds2022-map-viewer --> calcite-action-bar
+  esri-ds2022-map-viewer --> calcite-action
+  esri-ds2022-map-viewer --> esri-ds2022-clustering
+  calcite-action-bar --> calcite-action-group
+  calcite-action-group --> calcite-action-menu
+  calcite-action-group --> calcite-action
+  calcite-action-menu --> calcite-action
+  calcite-action-menu --> calcite-tooltip-manager
+  calcite-action-menu --> calcite-popover
+  calcite-action --> calcite-loader
+  calcite-action --> calcite-icon
+  calcite-popover --> calcite-action
+  calcite-popover --> calcite-icon
   esri-ds2022-clustering --> calcite-label
   esri-ds2022-clustering --> calcite-switch
   esri-ds2022-clustering --> calcite-slider
   esri-ds2022-clustering --> calcite-button
+  esri-ds2022-clustering --> calcite-flow
   esri-ds2022-clustering --> calcite-panel
   esri-ds2022-clustering --> esri-ds2022-label
-  esri-ds2022-clustering --> calcite-flow
   calcite-slider --> calcite-graph
   calcite-button --> calcite-loader
   calcite-button --> calcite-icon
   calcite-panel --> calcite-action
   calcite-panel --> calcite-action-menu
   calcite-panel --> calcite-scrim
-  calcite-action --> calcite-loader
-  calcite-action --> calcite-icon
-  calcite-action-menu --> calcite-action
-  calcite-action-menu --> calcite-tooltip-manager
-  calcite-action-menu --> calcite-popover
-  calcite-popover --> calcite-action
-  calcite-popover --> calcite-icon
   calcite-scrim --> calcite-loader
   esri-ds2022-label --> esri-ds2022-label-content
   esri-ds2022-label --> calcite-fab
@@ -86,10 +96,7 @@ graph TD;
   calcite-block --> calcite-action-menu
   calcite-handle --> calcite-icon
   calcite-fab --> calcite-button
-  calcite-action-bar --> calcite-action-group
-  calcite-action-group --> calcite-action-menu
-  calcite-action-group --> calcite-action
-  style esri-ds2022-map fill:#f9f,stroke:#333,stroke-width:4px
+  style esri-ds2022-map-viewer fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
