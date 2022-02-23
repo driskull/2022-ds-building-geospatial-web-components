@@ -1,4 +1,4 @@
-import { Component, h, Host, State } from "@stencil/core";
+import { Component, h, State } from "@stencil/core";
 import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
@@ -47,30 +47,28 @@ export class EsriMap {
 
   render() {
     return (
-      <Host>
-        <calcite-shell>
-          <div id="viewDiv" ref={(el) => (this.mapView.container = el)} class="map" />
-          <h2 slot="header"> Geospatial web components demo</h2>
-          <calcite-shell-panel slot="primary-panel" position="start" collapsed={true}>
-            <calcite-action-bar slot="action-bar">
-              <calcite-action
-                text="Save demo"
-                indicator={this.hasChanges}
-                icon="save"
-                onClick={() => (this.hasChanges = false)}
-              />
-            </calcite-action-bar>
-          </calcite-shell-panel>
-          <calcite-shell-panel slot="contextual-panel" position="end">
-            <esri-ds2022-clustering
-              mapView={this.mapView}
-              layer={this.featureLayer}
-              onFeatureReductionUpdated={() => (this.hasChanges = true)}
-            ></esri-ds2022-clustering>
-            <calcite-action-bar slot="action-bar" />
-          </calcite-shell-panel>
-        </calcite-shell>
-      </Host>
+      <calcite-shell>
+        <div id="viewDiv" ref={(el) => (this.mapView.container = el)} class="map" />
+        <h2 slot="header">Geospatial web components demo</h2>
+        <calcite-shell-panel slot="primary-panel" position="start" collapsed={true}>
+          <calcite-action-bar slot="action-bar">
+            <calcite-action
+              text="Save demo"
+              indicator={this.hasChanges}
+              icon="save"
+              onClick={() => (this.hasChanges = false)}
+            />
+          </calcite-action-bar>
+        </calcite-shell-panel>
+        <calcite-shell-panel slot="contextual-panel" position="end">
+          <esri-ds2022-clustering
+            mapView={this.mapView}
+            layer={this.featureLayer}
+            onFeatureReductionUpdated={() => (this.hasChanges = true)}
+          />
+          <calcite-action-bar slot="action-bar" />
+        </calcite-shell-panel>
+      </calcite-shell>
     );
   }
 }
