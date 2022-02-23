@@ -2,7 +2,6 @@ import {
   Component,
   h,
   Prop,
-  Host,
   Event,
   EventEmitter,
   State,
@@ -192,28 +191,26 @@ export class LabelContent {
       </calcite-label>
     );
     return (
-      <Host>
-        <calcite-block
-          heading="Label"
-          collapsible={true}
-          open={true}
-          intlCollapse="Collapse"
-          intlExpand="Expand"
-          onCalciteBlockToggle={() => this.closeLabelPopovers.emit()}
-        >
-          <calcite-icon slot="icon" scale="m" icon="label" />
-          <calcite-action
-            slot="control"
-            icon="trash"
-            text="Delete"
-            appearance="clear"
-            onClick={() => this.labelContentDeleted.emit()}
-          />
-          {this.displayType === DisplayType.feature && labelField}
-          {labelStyle}
-          {sliderBlock}
-        </calcite-block>
-      </Host>
+      <calcite-block
+        heading="Label"
+        collapsible={true}
+        open={true}
+        intlCollapse="Collapse"
+        intlExpand="Expand"
+        onCalciteBlockToggle={() => this.closeLabelPopovers.emit()}
+      >
+        <calcite-icon slot="icon" scale="m" icon="label" />
+        <calcite-action
+          slot="control"
+          icon="trash"
+          text="Delete"
+          appearance="clear"
+          onClick={() => this.labelContentDeleted.emit()}
+        />
+        {this.displayType === DisplayType.feature && labelField}
+        {labelStyle}
+        {sliderBlock}
+      </calcite-block>
     );
   }
 }

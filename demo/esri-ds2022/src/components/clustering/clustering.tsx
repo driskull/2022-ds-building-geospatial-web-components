@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, Event, EventEmitter, Listen, State, VNode } from "@stencil/core";
+import { Component, h, Prop, Event, EventEmitter, Listen, State, VNode } from "@stencil/core";
 import * as clusterLabelCreator from "@arcgis/core/smartMapping/labels/clusters";
 import FeatureReductionCluster from "@arcgis/core/layers/support/FeatureReductionCluster";
 import { DisplayType } from "../label/_utils";
@@ -191,36 +191,34 @@ export class Clustering {
     );
 
     return (
-      <Host>
-        <calcite-flow>
-          <calcite-panel heading="Clustering" summary={this.layer.title}>
-            {clusterSwitch}
-            {/* only show rest of the option when cluster is enabled */}
-            {this.layer.featureReduction && (
-              <div>
-                {clusterRadiusSlider}
-                {clusterSizeSlider}
-                {labelBtn}
-              </div>
-            )}
+      <calcite-flow>
+        <calcite-panel heading="Clustering" summary={this.layer.title}>
+          {clusterSwitch}
+          {/* only show rest of the option when cluster is enabled */}
+          {this.layer.featureReduction && (
+            <div>
+              {clusterRadiusSlider}
+              {clusterSizeSlider}
+              {labelBtn}
+            </div>
+          )}
+        </calcite-panel>
+        {this.showLabelPanel ? (
+          <calcite-panel
+            heading="Label features"
+            summary={this.layer.title || ""}
+            ref={(el) => (this.labelPanel = el)}
+            onCalcitePanelBackClick={() => (this.showLabelPanel = false)}
+          >
+            <esri-ds2022-label
+              layer={this.layer}
+              mapView={this.mapView}
+              displayType={DisplayType.cluster}
+              labelPanel={this.labelPanel}
+            />
           </calcite-panel>
-          {this.showLabelPanel ? (
-            <calcite-panel
-              heading="Label features"
-              summary={this.layer.title || ""}
-              ref={(el) => (this.labelPanel = el)}
-              onCalcitePanelBackClick={() => (this.showLabelPanel = false)}
-            >
-              <esri-ds2022-label
-                layer={this.layer}
-                mapView={this.mapView}
-                displayType={DisplayType.cluster}
-                labelPanel={this.labelPanel}
-              />
-            </calcite-panel>
-          ) : null}
-        </calcite-flow>
-      </Host>
+        ) : null}
+      </calcite-flow>
     );
   }
 }

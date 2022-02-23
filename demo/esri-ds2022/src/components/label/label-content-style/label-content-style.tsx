@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, Event, EventEmitter, Listen, VNode } from "@stencil/core";
+import { Component, h, Prop, Event, EventEmitter, Listen, VNode } from "@stencil/core";
 
 // mark internal so it doesn't show up in stencil-doc output.
 // We don't want clients to use this component directly.
@@ -104,38 +104,35 @@ export class LabelContentStyle {
     );
 
     return (
-      <Host>
-        {/* popver width and position is calculated based on labelContentRefElement */}
-        <calcite-popover
-          placement="leading-start"
-          open={true}
-          disablePointer={true}
-          referenceElement={this.labelContentRefElement}
-          offsetDistance={-Math.round(this.labelContentRefElement.getBoundingClientRect().width)}
-          offsetSkidding={0}
-          label=""
-          // todo: move into css class
+      <calcite-popover
+        placement="leading-start"
+        open={true}
+        disablePointer={true}
+        referenceElement={this.labelContentRefElement}
+        offsetDistance={-Math.round(this.labelContentRefElement.getBoundingClientRect().width)}
+        offsetSkidding={0}
+        label=""
+        // todo: move into css class
+        style={{
+          zIndex: "100"
+        }}
+      >
+        <calcite-panel
+          intlClose="Close"
+          dismissible={true}
+          heightScale="l"
           style={{
-            zIndex: "100"
+            width: `${this.labelContentRefElement.getBoundingClientRect().width}px`
           }}
         >
-          <calcite-panel
-            intlClose="Close"
-            dismissible={true}
-            heightScale="l"
-            style={{
-              width: `${this.labelContentRefElement.getBoundingClientRect().width}px`
-            }}
-          >
-            <div slot="header-content">Label style</div>
-            <calcite-block heading="" collapsible={false} open={true}>
-              {fontSizeSelection}
-              {color}
-              {offset}
-            </calcite-block>
-          </calcite-panel>
-        </calcite-popover>
-      </Host>
+          <div slot="header-content">Label style</div>
+          <calcite-block heading="" collapsible={false} open={true}>
+            {fontSizeSelection}
+            {color}
+            {offset}
+          </calcite-block>
+        </calcite-panel>
+      </calcite-popover>
     );
   }
 }

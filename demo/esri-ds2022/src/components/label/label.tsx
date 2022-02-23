@@ -188,6 +188,7 @@ export class Label {
     return (
       // labelPanel => coming from cluster panel
       // todo: move into CSS class like: class={{noLabelPanel: !labelPanel }} no inline styles
+      // todo: ideally, classes on host element are bad because they are in light dom. Maybe consider putting the class internal to the component if possible.
       <Host style={!this.labelPanel && { display: "flex", flex: "1 1 auto", overflow: "hidden" }}>
         {this.labelPanel ? (
           <div>{labelSwitchAndContent}</div>
