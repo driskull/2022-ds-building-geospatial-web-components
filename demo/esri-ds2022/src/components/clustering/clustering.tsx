@@ -61,7 +61,7 @@ export class Clustering {
   internalFeatureReductionUpdatedHandler(event: Event): void {
     event.stopPropagation();
     this.layer.featureReduction =
-      (this.layer.featureReduction as __esri.FeatureReductionCluster)?.clone() || null;
+      (this.layer.featureReduction as __esri.FeatureReductionCluster)?.toJSON() || null;
     // for external clients
     this.featureReductionUpdated.emit();
   }
@@ -77,16 +77,18 @@ export class Clustering {
           layer: this.layer,
           view: this.mapView
         });
-        this.layer.featureReduction = new FeatureReductionCluster({
+        this.layer.featureReduction = {
+          type: "cluster",
           clusterMinSize: labelSchemes?.primaryScheme?.clusterMinSize || this.clusteringSizeMinVal,
           clusterMaxSize: this.clusterSizeMax,
           clusterRadius: this.clusterRadius,
           labelsVisible: true,
           labelingInfo: labelSchemes?.primaryScheme?.labelingInfo || null
-        });
+        } as __esri.FeatureReductionCluster;
       }
     } else {
-      this.tempFeatureReduction = this.layer.featureReduction as __esri.FeatureReductionCluster;
+      this.tempFeatureReduction =
+        (this.layer.featureReduction as __esri.FeatureReductionCluster)?.toJSON() || null;
       this.layer.featureReduction = null;
     }
 
