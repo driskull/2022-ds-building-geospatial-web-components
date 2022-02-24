@@ -26,7 +26,7 @@
 - Visual language for products
   - Design guidelines
     - Color, Spacing, Typography...
-  - Graphic resources (Icons, symbols, Sketch UI Kit)
+  - Graphic resources (Icons, symbols, Figma UI Kit)
   - Interactive documentation
     - Patterns & best practices
   - Reusable components
