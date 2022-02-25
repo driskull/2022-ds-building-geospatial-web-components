@@ -44,9 +44,11 @@ export class Label {
    */
   @Event() closeLabelPopovers: EventEmitter;
 
-  // todo: move these to separate state properties
-  // Need this to rerender on any change since we are making changes to label object, which will not trigger a rerender.
-  @State() reRender: boolean;
+  @State() hasLabelEnabled: boolean = null;
+
+  @State() addLabelingInfo: boolean = false;
+
+  @State() deleteLabelContent = false;
 
   labelingInfo: __esri.LabelClass[];
 
@@ -147,7 +149,7 @@ export class Label {
       } else {
         this.labelingInfo = [labelClass];
       }
-      this.reRender = !this.reRender;
+      this.addLabelingInfo = !this.addLabelingInfo;
     });
     return calciteFab;
   }
@@ -161,7 +163,7 @@ export class Label {
       this.layer.labelsVisible = checked;
     }
     this.addLabelBtn.hidden = !checked;
-    this.reRender = !this.reRender;
+    this.hasLabelEnabled = checked;
   };
 
   labelContentDeleted(labelClass: __esri.LabelClass): void {
@@ -169,7 +171,7 @@ export class Label {
     this.labelingInfo = this.labelingInfo.filter(
       (label: __esri.LabelClass) => label !== labelClass
     );
-    this.reRender = !this.reRender;
+    this.deleteLabelContent = !this.deleteLabelContent;
   }
 
   // rendor methods
