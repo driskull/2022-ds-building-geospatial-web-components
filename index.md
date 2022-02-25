@@ -10,30 +10,12 @@
 
 # Agenda
 
-- Web components
-- Calcite
-- Geospatial components
+- Web components <!-- Matt -->
+- Calcite <!-- Matt -->
+- Geospatial components <!-- Matt -->
 - Demo: Esri web apps using geospatial components
 - Geospatial components patterns & practices
 - Demo: Sample app using geospatial components
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
-
-# Geospatial Components
-
-TODO
-
----
-
-# Geospatial Component Composition
-
-- Composed of
-  - ArcGIS JS API
-  - Calcite Design System components
-- Built as a web component
-  - Stencil.js
 
 ---
 
@@ -261,11 +243,34 @@ Why use Calcite components?
 
 ---
 
-# Demo:App with geospatial components
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# Geospatial Components
+
+TODO
+
+---
+
+# Geospatial Component Composition
+
+- Composed of
+  - ArcGIS JS API
+  - Calcite Design System components
+- Built as a web component
+  - Stencil.js
 
 ---
 
 # Demo: Esri web apps using geospatial components
+
+---
+
+# Geospatial components patterns & practices
+
+---
+
+# Demo: Sample app using geospatial components
 
 TODO
 
