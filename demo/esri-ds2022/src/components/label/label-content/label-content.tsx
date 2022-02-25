@@ -73,6 +73,7 @@ export class LabelContent {
   }
 
   disconnectedCallback() {
+    this.closeLabelPopoversHandler();
     this.scaleRangeSlider?.destroy();
     this.scaleRangeSliderWatch?.remove();
     this.mapViewScaleWatch?.remove();
@@ -81,6 +82,10 @@ export class LabelContent {
   @Listen("closeLabelPopovers", { target: "window" })
   closeLabelPopoversHandler(): void {
     if (this.labelStyle) {
+      this.labelStyle.removeEventListener(
+        "labelContentStyleChanges",
+        this.labelContentStyleChanges
+      );
       document.body.removeChild(this.labelStyle);
       this.labelStyle = null;
     }
@@ -99,15 +104,17 @@ export class LabelContent {
     this.internalLabelUpdated.emit();
   };
 
+  labelContentStyleChanges = (): void => {
+    this.internalLabelUpdated.emit();
+  };
+
   openLabelStyle = (): void => {
     this.closeLabelPopovers.emit();
     if (!this.labelStyle) {
       this.labelStyle = document.createElement("esri-ds2022-label-content-style");
       this.labelStyle.labelContentRefElement = this.hostElement;
       this.labelStyle.labelClass = this.labelClass;
-      this.labelStyle.addEventListener("labelContentStyleChanges", () => {
-        this.internalLabelUpdated.emit();
-      });
+      this.labelStyle.addEventListener("labelContentStyleChanges", this.labelContentStyleChanges);
       document.body.appendChild(this.labelStyle);
       this.disableLabelPanel.emit(true);
     }
