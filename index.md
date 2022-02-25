@@ -11,7 +11,7 @@
 # Agenda
 
 - Web components <!-- Matt -->
-- Calcite <!-- Matt -->
+- Calcite Design System <!-- Matt -->
 - Geospatial components <!-- Matt: Intro/background: how this got started. -->
 - Demo: Esri web apps using geospatial components
 - Geospatial components patterns & practices <!-- Here we talk about patterns, best practices, jsapi intergration, etc -->
@@ -21,7 +21,7 @@
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-# Web Components (what?)
+# About Web Components
 
 - Suite of different technologies (web standards)
 - Allows you to create reusable custom elements
@@ -31,7 +31,7 @@
 
 ---
 
-# Web Components (how?)
+# Web Components Tech
 
 - Custom elements
   - Browser-compatible elements
@@ -39,12 +39,12 @@
   - DOM element lifecycle
 - Shadow DOM
   - Encapsulates component HTML & CSS
-  - `<slot>` for distributing content
+  - `<slot>` tag for distributing content
 
 
 ---
 
-# Configuring components
+# Configuring Web Components
 
 - Slots
 - Properties/Attributes
@@ -53,7 +53,7 @@
 
 # Named Slots
 
-Components provide named slots to customize certain regions
+To customize certain regions
 
 ```html
 <calcite-card>
@@ -72,13 +72,27 @@ Components provide named slots to customize certain regions
 
 # Default Slots
 
-Components provide default slots for default content
+For default content placement
 
 ```html
 <calcite-button round scale="l">My Button!</calcite-button>
 ```
 
 <calcite-button round scale="l">My Button!</calcite-button>
+
+---
+
+# Basic Web Component
+
+```js
+class MyComponent extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `<h1>Hello world</h1>`;
+  }
+}
+
+customElements.define('my-component', MyComponent);
+```
 
 ---
 
@@ -112,7 +126,7 @@ Components provide default slots for default content
 
 # Benefits
 
-Why use a Design System + Web Components?
+Design System + Web Components
 
 ---
 
