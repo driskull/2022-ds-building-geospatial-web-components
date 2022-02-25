@@ -6,7 +6,7 @@ import FeatureLayer from "@arcgis/core/layers/FeatureLayer.js";
 @Component({
   tag: "esri-ds2022-map-viewer",
   styleUrl: "map-viewer.css",
-  scoped: true
+  shadow: true
 })
 export class MapViewer {
   @Prop() mapTitle = "Geospatial web components demo";
