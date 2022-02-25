@@ -32,8 +32,8 @@ export class LabelContentStyle {
     this.labelContentStyleChanges.emit();
   };
 
-  colorChange = (event: any): void => {
-    this.labelClass.symbol.color = event.target?.value;
+  colorChange = (event: CustomEvent): void => {
+    this.labelClass.symbol.color = (event.target as any)?.value;
     this.labelContentStyleChanges.emit();
   };
 

@@ -69,9 +69,7 @@ export class LabelContent {
         this.internalLabelUpdated.emit();
       }
     );
-    this.mapViewScaleWatch = this.mapView.watch("scale", () => {
-      this.scaleRangeSlider.renderNow();
-    });
+    this.mapViewScaleWatch = this.mapView.watch("scale", () => this.scaleRangeSlider.renderNow());
   }
 
   disconnectedCallback() {
@@ -90,7 +88,7 @@ export class LabelContent {
   }
 
   getDisplayFieldName(): string {
-    return (this.labelClass as any).getLabelExpressionSingleField();
+    return this.labelClass.getLabelExpressionSingleField();
   }
 
   labelFieldSelection = (): void => {
