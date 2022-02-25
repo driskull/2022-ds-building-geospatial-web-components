@@ -66,7 +66,6 @@ export class Label {
 
   componentDidLoad(): void {
     // add add label button to either label panel or the label panel via clustering component
-    // todo: move into render method
     this.addLabelBtn = this.getAddLabelBtn();
     if (this.labelPanel) {
       this.labelPanel.appendChild(this.addLabelBtn);
@@ -132,7 +131,6 @@ export class Label {
   }
 
   getAddLabelBtn(): HTMLCalciteFabElement {
-    // todo: move into render method
     const calciteFab = document.createElement("calcite-fab") as HTMLCalciteFabElement;
     calciteFab.icon = "plus";
     calciteFab.slot = "fab";
@@ -195,8 +193,6 @@ export class Label {
 
     return (
       // labelPanel => coming from cluster panel
-      // todo: move into CSS class like: class={{noLabelPanel: !labelPanel }} no inline styles
-      // todo: ideally, classes on host element are bad because they are in light dom. Maybe consider putting the class internal to the component if possible.
       <Host style={!this.labelPanel && { display: "flex", flex: "1 1 auto", overflow: "hidden" }}>
         {this.labelPanel ? (
           <div>{labelSwitchAndContent}</div>

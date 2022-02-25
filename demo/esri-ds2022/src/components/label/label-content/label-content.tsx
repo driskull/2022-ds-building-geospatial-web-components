@@ -180,7 +180,7 @@ export class LabelContent {
     const sliderBlock = (
       <calcite-label>
         Visible range
-        <div class="slider" ref={(el) => (this.scaleRangeSlider.container = el)}></div>
+        <div class="slider" ref={(el) => (this.scaleRangeSlider.container = el)} />
       </calcite-label>
     );
     return (

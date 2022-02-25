@@ -90,7 +90,7 @@ export class LabelContentStyle {
             min={-20}
             max={20}
             onCalciteInputInput={this.OffsetXChange}
-          ></calcite-input>
+          />
         </calcite-label>
         <calcite-label scale="s">
           OffsetY
@@ -102,7 +102,7 @@ export class LabelContentStyle {
             min={-20}
             max={20}
             onCalciteInputInput={this.OffsetYChange}
-          ></calcite-input>
+          />
         </calcite-label>
       </div>
     );
