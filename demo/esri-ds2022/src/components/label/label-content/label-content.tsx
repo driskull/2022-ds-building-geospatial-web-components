@@ -112,6 +112,28 @@ export class LabelContent {
     return (this.labelClass as any).getLabelExpressionSingleField();
   }
 
+  labelFieldSelection = (): void => {
+    this.closeLabelPopovers.emit();
+    let selectedItem = this.dropdownElement?.selectedItems?.[0]?.id;
+    this.dropdownButton.innerHTML = selectedItem;
+    this.labelClass.labelExpressionInfo.expression = `$feature["${selectedItem}"]`;
+    this.reRender = !this.reRender;
+  };
+
+  openLabelStyle = (): void => {
+    this.closeLabelPopovers.emit();
+    if (!this.labelStyle) {
+      this.labelStyle = document.createElement("esri-ds2022-label-content-style");
+      this.labelStyle.labelContentRefElement = this.hostElement;
+      this.labelStyle.labelClass = this.labelClass;
+      this.labelStyle.addEventListener("labelContentStyleChanges", () => {
+        this.reRender = !this.reRender;
+      });
+      document.body.appendChild(this.labelStyle);
+      this.disableLabelPanel.emit(true);
+    }
+  };
+
   render(): VNode {
     // dropdown for list of fields
     const labelField = (
@@ -120,14 +142,7 @@ export class LabelContent {
         <calcite-dropdown
           ref={(el) => (this.dropdownElement = el)}
           maxItems={12}
-          // todo: move into class function
-          onCalciteDropdownSelect={(): void => {
-            this.closeLabelPopovers.emit();
-            let selectedItem = this.dropdownElement?.selectedItems?.[0]?.id;
-            this.dropdownButton.innerHTML = selectedItem;
-            this.labelClass.labelExpressionInfo.expression = `$feature["${selectedItem}"]`;
-            this.reRender = !this.reRender;
-          }}
+          onCalciteDropdownSelect={this.labelFieldSelection}
         >
           <calcite-button
             ref={(el) => (this.dropdownButton = el)}
@@ -168,20 +183,7 @@ export class LabelContent {
           iconEnd="chevronDown"
           alignment="icon-end-space-between"
           width="full"
-          // todo: move into class function
-          onClick={() => {
-            this.closeLabelPopovers.emit();
-            if (!this.labelStyle) {
-              this.labelStyle = document.createElement("esri-ds2022-label-content-style");
-              this.labelStyle.labelContentRefElement = this.hostElement;
-              this.labelStyle.labelClass = this.labelClass;
-              this.labelStyle.addEventListener("labelContentStyleChanges", () => {
-                this.reRender = !this.reRender;
-              });
-              document.body.appendChild(this.labelStyle);
-              this.disableLabelPanel.emit(true);
-            }
-          }}
+          onClick={this.openLabelStyle}
         >
           Cluster label
         </calcite-button>
