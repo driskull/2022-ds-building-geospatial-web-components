@@ -12,9 +12,9 @@
 
 - Web components <!-- Matt -->
 - Calcite <!-- Matt -->
-- Geospatial components <!-- Matt -->
+- Geospatial components <!-- Matt: Intro/background: how this got started. -->
 - Demo: Esri web apps using geospatial components
-- Geospatial components patterns & practices
+- Geospatial components patterns & practices <!-- Here we talk about patterns, best practices, jsapi intergration, etc -->
 - Demo: Sample app using geospatial components
 
 ---
