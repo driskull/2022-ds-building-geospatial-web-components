@@ -1,14 +1,4 @@
-import {
-  Component,
-  h,
-  Prop,
-  Event,
-  EventEmitter,
-  State,
-  Element,
-  Listen,
-  VNode
-} from "@stencil/core";
+import { Component, h, Prop, Event, EventEmitter, Element, Listen, VNode } from "@stencil/core";
 // esri jsapi widget: https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-ScaleRangeSlider.html
 import ScaleRangeSlider from "@arcgis/core/widgets/ScaleRangeSlider";
 import { DisplayType } from "../_utils";
@@ -48,10 +38,6 @@ export class LabelContent {
   // emit when main panel should be disabled/enabled
   @Event() disableLabelPanel: EventEmitter;
 
-  // todo: split up into multiple states
-  // Need this to rerender on any change since we are making changes to labelclass object, which will not trigger a rerender.
-  @State() reRender = true;
-
   dropdownElement: HTMLCalciteDropdownElement;
 
   dropdownButton: HTMLCalciteButtonElement;
@@ -80,7 +66,7 @@ export class LabelContent {
           this.labelClass.maxScale = value;
         }
         this.closeLabelPopovers.emit();
-        this.reRender = !this.reRender;
+        this.internalLabelUpdated.emit();
       }
     );
     this.mapViewScaleWatch = this.mapView.watch("scale", () => {
@@ -92,11 +78,6 @@ export class LabelContent {
     this.scaleRangeSlider?.destroy();
     this.scaleRangeSliderWatch?.remove();
     this.mapViewScaleWatch?.remove();
-  }
-
-  // Called after every re-render. Not called on initial draw.
-  componentDidUpdate(): void {
-    this.internalLabelUpdated.emit();
   }
 
   @Listen("closeLabelPopovers", { target: "window" })
@@ -117,7 +98,7 @@ export class LabelContent {
     let selectedItem = this.dropdownElement?.selectedItems?.[0]?.id;
     this.dropdownButton.innerHTML = selectedItem;
     this.labelClass.labelExpressionInfo.expression = `$feature["${selectedItem}"]`;
-    this.reRender = !this.reRender;
+    this.internalLabelUpdated.emit();
   };
 
   openLabelStyle = (): void => {
@@ -127,7 +108,7 @@ export class LabelContent {
       this.labelStyle.labelContentRefElement = this.hostElement;
       this.labelStyle.labelClass = this.labelClass;
       this.labelStyle.addEventListener("labelContentStyleChanges", () => {
-        this.reRender = !this.reRender;
+        this.internalLabelUpdated.emit();
       });
       document.body.appendChild(this.labelStyle);
       this.disableLabelPanel.emit(true);
