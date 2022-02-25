@@ -50,33 +50,15 @@ export class LabelContent {
 
   mapViewScaleWatch: __esri.WatchHandle;
 
-  componentWillLoad() {
-    this.scaleRangeSlider = new ScaleRangeSlider({
-      view: this.mapView,
-      layer: this.layer,
-      minScale: this.labelClass.minScale || 0,
-      maxScale: this.labelClass.maxScale || 0
-    });
-    this.scaleRangeSliderWatch = this.scaleRangeSlider.watch(
-      ["minScale", "maxScale"],
-      (value: number, _oldValue: number, name: string) => {
-        if (name === "minScale") {
-          this.labelClass.minScale = value;
-        } else if (name === "maxScale") {
-          this.labelClass.maxScale = value;
-        }
-        this.closeLabelPopovers.emit();
-        this.internalLabelUpdated.emit();
-      }
-    );
-    this.mapViewScaleWatch = this.mapView.watch("scale", () => this.scaleRangeSlider.renderNow());
-  }
-
   disconnectedCallback() {
     this.closeLabelPopoversHandler();
     this.scaleRangeSlider?.destroy();
     this.scaleRangeSliderWatch?.remove();
     this.mapViewScaleWatch?.remove();
+  }
+
+  componentDidRender() {
+    this.scaleRangeSlider?.scheduleRender();
   }
 
   @Listen("closeLabelPopovers", { target: "window" })
@@ -117,6 +99,33 @@ export class LabelContent {
       this.labelStyle.addEventListener("labelContentStyleChanges", this.labelContentStyleChanges);
       document.body.appendChild(this.labelStyle);
       this.disableLabelPanel.emit(true);
+    }
+  };
+
+  createSlider = (el: HTMLDivElement): void => {
+    {
+      this.scaleRangeSlider = new ScaleRangeSlider({
+        container: el,
+        view: this.mapView,
+        layer: this.layer,
+        minScale: this.labelClass.minScale || 0,
+        maxScale: this.labelClass.maxScale || 0
+      });
+      this.scaleRangeSliderWatch = this.scaleRangeSlider.watch(
+        ["minScale", "maxScale"],
+        (value: number, _oldValue: number, name: string) => {
+          if (name === "minScale") {
+            this.labelClass.minScale = value;
+          } else if (name === "maxScale") {
+            this.labelClass.maxScale = value;
+          }
+          this.closeLabelPopovers.emit();
+          this.internalLabelUpdated.emit();
+        }
+      );
+      this.mapViewScaleWatch = this.mapView.watch("scale", () =>
+        this.scaleRangeSlider.scheduleRender()
+      );
     }
   };
 
@@ -169,7 +178,7 @@ export class LabelContent {
           iconEnd="chevronDown"
           alignment="icon-end-space-between"
           width="full"
-          onClick={this.openLabelStyle}
+          onClick={() => this.openLabelStyle()}
         >
           Cluster label
         </calcite-button>
@@ -180,7 +189,7 @@ export class LabelContent {
     const sliderBlock = (
       <calcite-label>
         Visible range
-        <div class="slider" ref={(el) => (this.scaleRangeSlider.container = el)} />
+        <div class="slider" ref={(el) => this.createSlider(el)} />
       </calcite-label>
     );
     return (

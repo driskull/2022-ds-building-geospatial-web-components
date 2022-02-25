@@ -186,7 +186,7 @@ export class Label {
           />
         </calcite-label>
         {this.getLabelsVisible() && (
-          <div class="content">{this.labelingInfo?.map(this.labelContent)}</div>
+          <div class="content">{this.labelingInfo?.map((info) => this.labelContent(info))}</div>
         )}
       </div>
     );
