@@ -52,21 +52,49 @@ export class LabelContent {
   // Need this to rerender on any change since we are making changes to labelclass object, which will not trigger a rerender.
   @State() reRender = true;
 
-  visibleRangeSlider: HTMLDivElement;
-
   dropdownElement: HTMLCalciteDropdownElement;
 
   dropdownButton: HTMLCalciteButtonElement;
 
   labelStyle: HTMLEsriDs2022LabelContentStyleElement;
 
-  // add widget after render
-  componentDidLoad(): void {
-    this.addScaleRangeSlider();
+  scaleRangeSlider: __esri.ScaleRangeSlider;
+
+  scaleRangeSliderWatch: __esri.WatchHandle;
+
+  mapViewScaleWatch: __esri.WatchHandle;
+
+  componentWillLoad() {
+    this.scaleRangeSlider = new ScaleRangeSlider({
+      view: this.mapView,
+      layer: this.layer,
+      minScale: this.labelClass.minScale || 0,
+      maxScale: this.labelClass.maxScale || 0
+    });
+    this.scaleRangeSliderWatch = this.scaleRangeSlider.watch(
+      ["minScale", "maxScale"],
+      (value: number, _oldValue: number, name: string) => {
+        if (name === "minScale") {
+          this.labelClass.minScale = value;
+        } else if (name === "maxScale") {
+          this.labelClass.maxScale = value;
+        }
+        this.closeLabelPopovers.emit();
+        this.reRender = !this.reRender;
+      }
+    );
+    this.mapViewScaleWatch = this.mapView.watch("scale", () => {
+      this.scaleRangeSlider.renderNow();
+    });
+  }
+
+  disconnectedCallback() {
+    this.scaleRangeSlider?.destroy();
+    this.scaleRangeSliderWatch?.remove();
+    this.mapViewScaleWatch?.remove();
   }
 
   // Called after every re-render. Not called on initial draw.
-
   componentDidUpdate(): void {
     this.internalLabelUpdated.emit();
   }
@@ -82,31 +110,6 @@ export class LabelContent {
 
   getDisplayFieldName(): string {
     return (this.labelClass as any).getLabelExpressionSingleField();
-  }
-
-  addScaleRangeSlider(): void {
-    // todo: create this on connectedCallback and destroy on disconnectedCallback.
-    // todo: Watch props and set them to the slider instead of on componentDidLoad
-    const scaleRangeSlider = new ScaleRangeSlider({
-      container: this.visibleRangeSlider,
-      view: this.mapView,
-      layer: this.layer,
-      minScale: this.labelClass.minScale || 0,
-      maxScale: this.labelClass.maxScale || 0
-    });
-    // watch for slider changes and update the map
-    scaleRangeSlider.watch(
-      ["minScale", "maxScale"],
-      (value: number, _oldValue: number, name: string) => {
-        if (name === "minScale") {
-          this.labelClass.minScale = value;
-        } else if (name === "maxScale") {
-          this.labelClass.maxScale = value;
-        }
-        this.closeLabelPopovers.emit();
-        this.reRender = !this.reRender;
-      }
-    );
   }
 
   render(): VNode {
@@ -189,7 +192,7 @@ export class LabelContent {
     const sliderBlock = (
       <calcite-label>
         Visible range
-        <div class="slider" ref={(el) => (this.visibleRangeSlider = el)}></div>
+        <div class="slider" ref={(el) => (this.scaleRangeSlider.container = el)}></div>
       </calcite-label>
     );
     return (
