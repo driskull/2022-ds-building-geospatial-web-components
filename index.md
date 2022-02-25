@@ -10,12 +10,12 @@
 
 # Agenda
 
-- Intro to geospatial components
 - Web components
-- Calcite (Esri's Design System)
-- Stencil.js
-- Demo: App with geospatial components
+- Calcite
+- Geospatial components
 - Demo: Esri web apps using geospatial components
+- Geospatial components patterns & practices
+- Demo: Sample app using geospatial components
 
 ---
 
