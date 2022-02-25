@@ -239,10 +239,44 @@ Why use Calcite components?
 
 # Stencil.js
 
-- todo
+- Toolchain for building Design Systems
+- Ionic Framework team
+- Compiles Web Components
+- Virtual DOM, Typescript and JSX
+- [Getting Started](https://stenciljs.com/docs/getting-started)
+
 
 ---
 
+# Basic Component
+
+```jsx
+import { Component, Prop, h } from '@stencil/core';
+
+@Component({
+  tag: 'my-first-component',
+})
+export class MyComponent {
+  // Name should be a public property on component
+  @Prop() name: string;
+
+  render() {
+    return (
+      <p>My name is {this.name}</p>
+    );
+  }
+}
+```
+
+---
+
+```html
+<my-first-component name="Matt"></my-first-component>
+```
+
+When rendered, the browser will display "My name is Matt"
+
+---
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
