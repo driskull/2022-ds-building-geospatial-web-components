@@ -215,6 +215,7 @@ export class Clustering {
               mapView={this.mapView}
               displayType={DisplayType.cluster}
               labelPanel={this.labelPanel}
+              onLabelUpdated={() => this.internalFeatureReductionUpdated.emit()}
             />
           </calcite-panel>
         ) : null}

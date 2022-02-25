@@ -19,7 +19,6 @@ export class Label {
    */
   @Prop() layer: __esri.FeatureLayer;
 
-  // todo: why are these internal?
   /**
    * @internal feature or cluster
    */
@@ -45,9 +44,11 @@ export class Label {
    */
   @Event() closeLabelPopovers: EventEmitter;
 
-  // todo: move these to separate state properties
-  // Need this to rerender on any change since we are making changes to label object, which will not trigger a rerender.
-  @State() reRender: boolean;
+  @State() hasLabelEnabled: boolean = null;
+
+  @State() addLabelingInfo: boolean = false;
+
+  @State() deleteLabelContent = false;
 
   labelingInfo: __esri.LabelClass[];
 
@@ -57,7 +58,6 @@ export class Label {
 
   componentWillLoad(): void {
     // handle both feature and cluster labeling info
-    // todo: maybe this shoud happen when watching displayType and layer instead of on load?
     this.labelingInfo =
       this.displayType === DisplayType.feature
         ? this.layer.labelingInfo
@@ -149,9 +149,29 @@ export class Label {
       } else {
         this.labelingInfo = [labelClass];
       }
-      this.reRender = !this.reRender;
+      this.addLabelingInfo = !this.addLabelingInfo;
     });
     return calciteFab;
+  }
+
+  labelSwitchToggle = (event: CustomEvent<boolean>): void => {
+    this.closeLabelPopovers.emit();
+    const checked = (event.target as HTMLCalciteSwitchElement).checked;
+    if (this.displayType === DisplayType.cluster) {
+      (this.layer.featureReduction as __esri.FeatureReductionCluster).labelsVisible = checked;
+    } else {
+      this.layer.labelsVisible = checked;
+    }
+    this.addLabelBtn.hidden = !checked;
+    this.hasLabelEnabled = checked;
+  };
+
+  labelContentDeleted(labelClass: __esri.LabelClass): void {
+    this.closeLabelPopovers.emit();
+    this.labelingInfo = this.labelingInfo.filter(
+      (label: __esri.LabelClass) => label !== labelClass
+    );
+    this.deleteLabelContent = !this.deleteLabelContent;
   }
 
   // rendor methods
@@ -164,19 +184,7 @@ export class Label {
           <calcite-switch
             scale="s"
             checked={this.getLabelsVisible()}
-            // todo: move into class function
-            onCalciteSwitchChange={async (event: CustomEvent) => {
-              this.closeLabelPopovers.emit();
-              const checked = (event.target as HTMLCalciteSwitchElement).checked;
-              if (this.displayType === DisplayType.cluster) {
-                (this.layer.featureReduction as __esri.FeatureReductionCluster).labelsVisible =
-                  checked;
-              } else {
-                this.layer.labelsVisible = checked;
-              }
-              this.addLabelBtn.hidden = !checked;
-              this.reRender = !this.reRender;
-            }}
+            onCalciteSwitchChange={this.labelSwitchToggle}
           />
         </calcite-label>
         {this.getLabelsVisible() && (
@@ -214,14 +222,7 @@ export class Label {
       mapView={this.mapView}
       layer={this.layer}
       displayType={this.displayType}
-      // todo: move into class function
-      onLabelContentDeleted={() => {
-        this.closeLabelPopovers.emit();
-        this.labelingInfo = this.labelingInfo.filter(
-          (label: __esri.LabelClass) => label !== labelClass
-        );
-        this.reRender = !this.reRender;
-      }}
+      onLabelContentDeleted={() => this.labelContentDeleted(labelClass)}
     />
   );
 }

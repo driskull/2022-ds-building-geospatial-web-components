@@ -1,14 +1,4 @@
-import {
-  Component,
-  h,
-  Prop,
-  Event,
-  EventEmitter,
-  State,
-  Element,
-  Listen,
-  VNode
-} from "@stencil/core";
+import { Component, h, Prop, Event, EventEmitter, Element, Listen, VNode } from "@stencil/core";
 // esri jsapi widget: https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-ScaleRangeSlider.html
 import ScaleRangeSlider from "@arcgis/core/widgets/ScaleRangeSlider";
 import { DisplayType } from "../_utils";
@@ -48,54 +38,26 @@ export class LabelContent {
   // emit when main panel should be disabled/enabled
   @Event() disableLabelPanel: EventEmitter;
 
-  // todo: split up into multiple states
-  // Need this to rerender on any change since we are making changes to labelclass object, which will not trigger a rerender.
-  @State() reRender = true;
-
-  visibleRangeSlider: HTMLDivElement;
-
   dropdownElement: HTMLCalciteDropdownElement;
 
   dropdownButton: HTMLCalciteButtonElement;
 
   labelStyle: HTMLEsriDs2022LabelContentStyleElement;
 
-  // add widget after render
-  componentDidLoad(): void {
-    this.addScaleRangeSlider();
-  }
+  scaleRangeSlider: __esri.ScaleRangeSlider;
 
-  // Called after every re-render. Not called on initial draw.
+  scaleRangeSliderWatch: __esri.WatchHandle;
 
-  componentDidUpdate(): void {
-    this.internalLabelUpdated.emit();
-  }
+  mapViewScaleWatch: __esri.WatchHandle;
 
-  @Listen("closeLabelPopovers", { target: "window" })
-  closeLabelPopoversHandler(): void {
-    if (this.labelStyle) {
-      document.body.removeChild(this.labelStyle);
-      this.labelStyle = null;
-    }
-    this.disableLabelPanel.emit(false);
-  }
-
-  getDisplayFieldName(): string {
-    return (this.labelClass as any).getLabelExpressionSingleField();
-  }
-
-  addScaleRangeSlider(): void {
-    // todo: create this on connectedCallback and destroy on disconnectedCallback.
-    // todo: Watch props and set them to the slider instead of on componentDidLoad
-    const scaleRangeSlider = new ScaleRangeSlider({
-      container: this.visibleRangeSlider,
+  componentWillLoad() {
+    this.scaleRangeSlider = new ScaleRangeSlider({
       view: this.mapView,
       layer: this.layer,
       minScale: this.labelClass.minScale || 0,
       maxScale: this.labelClass.maxScale || 0
     });
-    // watch for slider changes and update the map
-    scaleRangeSlider.watch(
+    this.scaleRangeSliderWatch = this.scaleRangeSlider.watch(
       ["minScale", "maxScale"],
       (value: number, _oldValue: number, name: string) => {
         if (name === "minScale") {
@@ -104,10 +66,59 @@ export class LabelContent {
           this.labelClass.maxScale = value;
         }
         this.closeLabelPopovers.emit();
-        this.reRender = !this.reRender;
+        this.internalLabelUpdated.emit();
       }
     );
+    this.mapViewScaleWatch = this.mapView.watch("scale", () => this.scaleRangeSlider.renderNow());
   }
+
+  disconnectedCallback() {
+    this.closeLabelPopoversHandler();
+    this.scaleRangeSlider?.destroy();
+    this.scaleRangeSliderWatch?.remove();
+    this.mapViewScaleWatch?.remove();
+  }
+
+  @Listen("closeLabelPopovers", { target: "window" })
+  closeLabelPopoversHandler(): void {
+    if (this.labelStyle) {
+      this.labelStyle.removeEventListener(
+        "labelContentStyleChanges",
+        this.labelContentStyleChanges
+      );
+      document.body.removeChild(this.labelStyle);
+      this.labelStyle = null;
+    }
+    this.disableLabelPanel.emit(false);
+  }
+
+  getDisplayFieldName(): string {
+    return this.labelClass.getLabelExpressionSingleField();
+  }
+
+  labelFieldSelection = (): void => {
+    this.closeLabelPopovers.emit();
+    let selectedItem = this.dropdownElement?.selectedItems?.[0]?.id;
+    this.dropdownButton.innerHTML = selectedItem;
+    this.labelClass.labelExpressionInfo.expression = `$feature["${selectedItem}"]`;
+    this.internalLabelUpdated.emit();
+  };
+
+  labelContentStyleChanges = (): void => {
+    this.internalLabelUpdated.emit();
+  };
+
+  openLabelStyle = (): void => {
+    this.closeLabelPopovers.emit();
+    if (!this.labelStyle) {
+      this.labelStyle = document.createElement("esri-ds2022-label-content-style");
+      this.labelStyle.labelContentRefElement = this.hostElement;
+      this.labelStyle.labelClass = this.labelClass;
+      this.labelStyle.addEventListener("labelContentStyleChanges", this.labelContentStyleChanges);
+      document.body.appendChild(this.labelStyle);
+      this.disableLabelPanel.emit(true);
+    }
+  };
 
   render(): VNode {
     // dropdown for list of fields
@@ -117,14 +128,7 @@ export class LabelContent {
         <calcite-dropdown
           ref={(el) => (this.dropdownElement = el)}
           maxItems={12}
-          // todo: move into class function
-          onCalciteDropdownSelect={(): void => {
-            this.closeLabelPopovers.emit();
-            let selectedItem = this.dropdownElement?.selectedItems?.[0]?.id;
-            this.dropdownButton.innerHTML = selectedItem;
-            this.labelClass.labelExpressionInfo.expression = `$feature["${selectedItem}"]`;
-            this.reRender = !this.reRender;
-          }}
+          onCalciteDropdownSelect={this.labelFieldSelection}
         >
           <calcite-button
             ref={(el) => (this.dropdownButton = el)}
@@ -165,20 +169,7 @@ export class LabelContent {
           iconEnd="chevronDown"
           alignment="icon-end-space-between"
           width="full"
-          // todo: move into class function
-          onClick={() => {
-            this.closeLabelPopovers.emit();
-            if (!this.labelStyle) {
-              this.labelStyle = document.createElement("esri-ds2022-label-content-style");
-              this.labelStyle.labelContentRefElement = this.hostElement;
-              this.labelStyle.labelClass = this.labelClass;
-              this.labelStyle.addEventListener("labelContentStyleChanges", () => {
-                this.reRender = !this.reRender;
-              });
-              document.body.appendChild(this.labelStyle);
-              this.disableLabelPanel.emit(true);
-            }
-          }}
+          onClick={this.openLabelStyle}
         >
           Cluster label
         </calcite-button>
@@ -189,7 +180,7 @@ export class LabelContent {
     const sliderBlock = (
       <calcite-label>
         Visible range
-        <div class="slider" ref={(el) => (this.visibleRangeSlider = el)}></div>
+        <div class="slider" ref={(el) => (this.scaleRangeSlider.container = el)}></div>
       </calcite-label>
     );
     return (
