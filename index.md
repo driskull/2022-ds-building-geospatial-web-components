@@ -41,67 +41,6 @@
   - Encapsulates component HTML & CSS
   - `<slot>` for distributing content
 
----
-
-# Plug & Play
-
-Use as native HTML elements
-
-<div class="r-stack">
-
-<div class="r-stretch">
-
-```html
-<label>
-  Name (4 to 8 characters):
-  <input
-    minlength="4"
-    maxlength="8"
-    placeholder="John Doe"
-    required />
-</label>
-```
-
-  <label>
-    Name (4 to 8 characters):
-    <input
-      minlength="4"
-      maxlength="8"
-      placeholder="John Doe"
-      required
-    />
-  </label>
-</div>
-
-<!-- .element: class="fragment fade-out" data-fragment-index="0" -->
-
-<div class="r-stretch">
-
-```html
-<calcite-label layout="inline">
-  Name (4 to 8 characters):
-  <calcite-input
-    min-length="4"
-    max-length="8"
-    placeholder="John Doe"
-    required
-  ></calcite-input>
-</calcite-label>
-```
-
-  <calcite-label layout="inline">
-    Name (4 to 8 characters):
-    <calcite-input
-      min-length="4"
-      max-length="8"
-      placeholder="John Doe"
-      required
-    ></calcite-input>
-  </calcite-label>
-</div>
-
-<!-- .element: class="fragment" data-fragment-index="0" -->
-</div>
 
 ---
 
@@ -112,51 +51,34 @@ Use as native HTML elements
 
 ---
 
-# Slots
+# Named Slots
 
-Components provide slots to customize certain regions
+Components provide named slots to customize certain regions
 
 ```html
-<calcite-tip heading="My Tip">
-  Okay Guy is a sullen-looking rage comic character...
-</calcite-tip>
+<calcite-card>
+  <h3 slot="title">Nicolas Cage</h3>
+  <img slot="thumbnail" src="https://www.placecage.com/c/300/150" />
+  <span slot="subtitle">Nicolas Kim Coppola, known professionally
+    as Nicolas Cage, is an American actor and filmmaker.</span
+  >
+</calcite-card>
 ```
 
-<div style="display:flex; height: 200px; align-items: center; justify-content: center;">
-  <calcite-tip heading="My Tip">
-    Okay Guy is a sullen-looking rage comic character...
-  </calcite-tip>
-</div>
+<iframe width="310" height="310" data-src="snippets/card.html" data-preload scrolling="no"></iframe>
+
 
 ---
 
-# Slots
+# Default Slots
 
-Components provide slots to customize certain regions
+Components provide default slots for default content
 
 ```html
-<calcite-tip heading="My Tip">
-  <img
-    slot="thumbnail"
-    src="https://i.kym-cdn.com/photos/images/original/000/082/456/Okay.png"
-    alt="This is an image of OK guy."
-    height="100px"
-  />
-  Okay Guy is a sullen-looking rage comic character...
-</calcite-tip>
+<calcite-button round scale="l">My Button!</calcite-button>
 ```
 
-<div style="display:flex; height: 350px; align-items: center; justify-content: center;">
-  <calcite-tip heading="My Tip">
-    <img
-      slot="thumbnail"
-      src="https://i.kym-cdn.com/photos/images/original/000/082/456/Okay.png"
-      alt="This is an image of OK guy."
-      height="200px"
-    />
-    Okay Guy is a sullen-looking rage comic character...
-  </calcite-tip>
-</div>
+<calcite-button round scale="l">My Button!</calcite-button>
 
 ---
 
@@ -190,7 +112,7 @@ Components provide slots to customize certain regions
 
 # Benefits
 
-Why use Calcite components?
+Why use a Design System + Web Components?
 
 ---
 
@@ -237,7 +159,15 @@ Why use Calcite components?
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
+# Building Web Components
+
+How we're building web components
+
+---
+
 # Stencil.js
+
+[![Stencil.js](img/stencil-logo.png)](https://stenciljs.com/)
 
 - Toolchain for building Design Systems
 - Ionic Framework team
@@ -248,7 +178,7 @@ Why use Calcite components?
 
 ---
 
-# Basic Component
+# Basic Component Class
 
 ```jsx
 import { Component, Prop, h } from '@stencil/core';
@@ -269,6 +199,8 @@ export class MyComponent {
 ```
 
 ---
+
+# Basic Component HTML Markup
 
 ```html
 <my-first-component name="Matt"></my-first-component>
