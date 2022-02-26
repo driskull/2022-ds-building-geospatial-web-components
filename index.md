@@ -49,7 +49,7 @@
 
 # Benefits
 
-Design System + Web Components
+Benefits of Calcite
 
 ---
 
@@ -70,6 +70,7 @@ Design System + Web Components
   - Reduce cost of design updates
   - Reusable (Stop reinventing the wheel)
 - Speed up development timelines
+  - Build Compelling Web Apps Faster
 
 ---
 
@@ -112,17 +113,20 @@ Design System + Web Components
   - Browser-compatible elements
   - Use native APIs
   - DOM element lifecycle
+- HTML templates & slotting
+ -  `<template>` and `<slot>` elements
 - Shadow DOM
   - Encapsulates component HTML & CSS
   - `<slot>` tag for distributing content
-
 
 ---
 
 # Configuring Web Components
 
-- Slots
+Primary ways to configure a web component
+
 - Properties/Attributes
+- Slots
 
 ---
 
@@ -149,10 +153,22 @@ To customize certain regions
 For default content placement
 
 ```html
-<calcite-button round scale="l">My Button!</calcite-button>
+<calcite-split-button primary-text="My Button!">
+  <calcite-dropdown-group>
+    <calcite-dropdown-item>Option 1</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 2</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 3</calcite-dropdown-item>
+  </calcite-dropdown-group>
+</calcite-split-button>
 ```
 
-<calcite-button round scale="l">My Button!</calcite-button>
+<calcite-split-button primary-text="My Button!">
+  <calcite-dropdown-group>
+    <calcite-dropdown-item>Option 1</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 2</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 3</calcite-dropdown-item>
+  </calcite-dropdown-group>
+</calcite-split-button>
 
 ---
 
