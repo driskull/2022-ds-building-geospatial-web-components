@@ -50,11 +50,13 @@ export class LabelContent {
 
   mapViewScaleWatch: __esri.WatchHandle;
 
+  connectedCallback() {
+    this.createSlider();
+  }
+
   disconnectedCallback() {
     this.closeLabelPopoversHandler();
-    this.scaleRangeSlider?.destroy();
-    this.scaleRangeSliderWatch?.remove();
-    this.mapViewScaleWatch?.remove();
+    this.destroySlider();
   }
 
   componentDidRender() {
@@ -102,31 +104,38 @@ export class LabelContent {
     }
   };
 
-  createSlider = (el: HTMLDivElement): void => {
-    {
-      this.scaleRangeSlider = new ScaleRangeSlider({
-        container: el,
-        view: this.mapView,
-        layer: this.layer,
-        minScale: this.labelClass.minScale || 0,
-        maxScale: this.labelClass.maxScale || 0
-      });
-      this.scaleRangeSliderWatch = this.scaleRangeSlider.watch(
-        ["minScale", "maxScale"],
-        (value: number, _oldValue: number, name: string) => {
-          if (name === "minScale") {
-            this.labelClass.minScale = value;
-          } else if (name === "maxScale") {
-            this.labelClass.maxScale = value;
-          }
-          this.closeLabelPopovers.emit();
-          this.internalLabelUpdated.emit();
+  destroySlider = (): void => {
+    this.scaleRangeSlider.destroy();
+    this.scaleRangeSliderWatch.remove();
+    this.mapViewScaleWatch.remove();
+  };
+
+  setSliderContainer = (el: HTMLDivElement): void => {
+    this.scaleRangeSlider.container = el;
+  };
+
+  createSlider = (): void => {
+    this.scaleRangeSlider = new ScaleRangeSlider({
+      view: this.mapView,
+      layer: this.layer,
+      minScale: this.labelClass.minScale || 0,
+      maxScale: this.labelClass.maxScale || 0
+    });
+    this.scaleRangeSliderWatch = this.scaleRangeSlider.watch(
+      ["minScale", "maxScale"],
+      (value: number, _oldValue: number, name: string) => {
+        if (name === "minScale") {
+          this.labelClass.minScale = value;
+        } else if (name === "maxScale") {
+          this.labelClass.maxScale = value;
         }
-      );
-      this.mapViewScaleWatch = this.mapView.watch("scale", () =>
-        this.scaleRangeSlider.scheduleRender()
-      );
-    }
+        this.closeLabelPopovers.emit();
+        this.internalLabelUpdated.emit();
+      }
+    );
+    this.mapViewScaleWatch = this.mapView.watch("scale", () =>
+      this.scaleRangeSlider.scheduleRender()
+    );
   };
 
   render(): VNode {
@@ -189,7 +198,7 @@ export class LabelContent {
     const sliderBlock = (
       <calcite-label>
         Visible range
-        <div class="slider" ref={(el) => this.createSlider(el)} />
+        <div class="slider" ref={(el) => this.setSliderContainer(el)} />
       </calcite-label>
     );
     return (
