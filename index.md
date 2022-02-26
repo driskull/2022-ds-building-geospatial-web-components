@@ -10,8 +10,8 @@
 
 # Agenda
 
-- Web components <!-- Matt -->
 - Calcite Design System <!-- Matt -->
+- Web components <!-- Matt -->
 - Geospatial components <!-- Matt: Intro/background: how this got started. -->
 - Demo: Esri web apps using geospatial components
 - Geospatial components patterns & practices <!-- Here we talk about patterns, best practices, jsapi intergration, etc -->
@@ -21,84 +21,7 @@
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-# About Web Components
-
-- Suite of different technologies (web standards)
-- Allows you to create reusable custom elements
-  - Functionality encapsulated
-  - Utilize them in your web apps
-- Supported by modern browsers
-
----
-
-# Web Components Tech
-
-- Custom elements
-  - Browser-compatible elements
-  - Use native APIs
-  - DOM element lifecycle
-- Shadow DOM
-  - Encapsulates component HTML & CSS
-  - `<slot>` tag for distributing content
-
-
----
-
-# Configuring Web Components
-
-- Slots
-- Properties/Attributes
-
----
-
-# Named Slots
-
-To customize certain regions
-
-```html
-<calcite-card>
-  <h3 slot="title">Nicolas Cage</h3>
-  <img slot="thumbnail" src="https://www.placecage.com/c/300/150" />
-  <span slot="subtitle">Nicolas Kim Coppola, known professionally
-    as Nicolas Cage, is an American actor and filmmaker.</span
-  >
-</calcite-card>
-```
-
-<iframe width="310" height="310" data-src="snippets/card.html" data-preload scrolling="no"></iframe>
-
-
----
-
-# Default Slots
-
-For default content placement
-
-```html
-<calcite-button round scale="l">My Button!</calcite-button>
-```
-
-<calcite-button round scale="l">My Button!</calcite-button>
-
----
-
-# Basic Web Component
-
-```js
-class MyComponent extends HTMLElement {
-  connectedCallback() {
-    this.innerHTML = `<h1>Hello world</h1>`;
-  }
-}
-
-customElements.define('my-component', MyComponent);
-```
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
-
-# Calcite - Esri's design system
+# Calcite: Esri's design system
 
 - Visual language for products
   - Design guidelines
@@ -168,6 +91,82 @@ Design System + Web Components
   - Encapsulation (Shadow DOM)
   - Familiarity (HTML)
   - Framework agnostic (Can be used in any framework)
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# About Web Components
+
+- Suite of different technologies (web standards)
+- Allows you to create reusable custom elements
+  - Functionality encapsulated
+  - Utilize them in your web apps
+- Supported by modern browsers
+
+---
+
+# Web Components Tech
+
+- Custom elements
+  - Browser-compatible elements
+  - Use native APIs
+  - DOM element lifecycle
+- Shadow DOM
+  - Encapsulates component HTML & CSS
+  - `<slot>` tag for distributing content
+
+
+---
+
+# Configuring Web Components
+
+- Slots
+- Properties/Attributes
+
+---
+
+# Named Slots
+
+To customize certain regions
+
+```html
+<calcite-card>
+  <h3 slot="title">Nicolas Cage</h3>
+  <img slot="thumbnail" src="https://www.placecage.com/c/300/150" />
+  <span slot="subtitle">Nicolas Kim Coppola, known professionally
+    as Nicolas Cage, is an American actor and filmmaker.</span>
+</calcite-card>
+```
+
+<iframe width="310" height="310" data-src="snippets/card.html" data-preload scrolling="no"></iframe>
+
+
+---
+
+# Default Slots
+
+For default content placement
+
+```html
+<calcite-button round scale="l">My Button!</calcite-button>
+```
+
+<calcite-button round scale="l">My Button!</calcite-button>
+
+---
+
+# Basic Web Component
+
+```js
+class MyComponent extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `<h1>Hello world</h1>`;
+  }
+}
+
+customElements.define('my-component', MyComponent);
+```
 
 ---
 
