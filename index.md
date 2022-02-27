@@ -114,7 +114,7 @@ Benefits of Calcite
   - Use native APIs
   - DOM element lifecycle
 - HTML templates & slotting
- -  `<template>` and `<slot>` elements
+- `<template>` and `<slot>` elements
 - Shadow DOM
   - Encapsulates component HTML & CSS
   - `<slot>` tag for distributing content
@@ -138,13 +138,14 @@ To customize certain regions
 <calcite-card>
   <h3 slot="title">Nicolas Cage</h3>
   <img slot="thumbnail" src="https://www.placecage.com/c/300/150" />
-  <span slot="subtitle">Nicolas Kim Coppola, known professionally
-    as Nicolas Cage, is an American actor and filmmaker.</span>
+  <span slot="subtitle"
+    >Nicolas Kim Coppola, known professionally as Nicolas Cage, is an American
+    actor and filmmaker.</span
+  >
 </calcite-card>
 ```
 
 <iframe width="310" height="310" data-src="snippets/card.html" data-preload scrolling="no"></iframe>
-
 
 ---
 
@@ -181,7 +182,7 @@ class MyComponent extends HTMLElement {
   }
 }
 
-customElements.define('my-component', MyComponent);
+customElements.define("my-component", MyComponent);
 ```
 
 ---
@@ -204,25 +205,22 @@ How we're building web components
 - Virtual DOM, Typescript and JSX
 - [Getting Started](https://stenciljs.com/docs/getting-started)
 
-
 ---
 
 # Basic Component Class
 
 ```jsx
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, h } from "@stencil/core";
 
 @Component({
-  tag: 'my-first-component',
+  tag: "my-first-component",
 })
 export class MyComponent {
   // Name should be a public property on component
   @Prop() name: string;
 
   render() {
-    return (
-      <p>My name is {this.name}</p>
-    );
+    return <p>My name is {this.name}</p>;
   }
 }
 ```
@@ -270,16 +268,17 @@ TODO
 TODO
 
 ---
+
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # Questions? 🤔
-
 
 ---
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 Please provide your feedback for this session by clicking on the session survey link directly below the video.
+
 <!-- .element: style="margin: 0 20%;" -->
 
 ---
@@ -298,11 +297,9 @@ Please provide your feedback for this session by clicking on the session survey 
 import React, { useState } from 'react';
 
 function Example() {
-  const [count, setCount] = useState(0);
-  return (
-    ...
-  );
+const [count, setCount] = useState(0);
+return (
+...
+);
 }
 </code></pre>
-
-
