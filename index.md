@@ -257,6 +257,19 @@ When rendered, the browser will display "My name is Matt"
 
 ---
 
+# Map viewer setup
+
+- Host application
+  - Maquette.js
+- Micro-Frontends
+  - Popup configurator
+  - Effects
+  - Sketch
+  - Charts
+  - etc...
+
+---
+
 # Demo: Esri web apps using geospatial components
 
 ---
