@@ -261,7 +261,7 @@ When rendered, the browser will display "My name is Matt"
 
 - Host application
   - Maquette.js
-- Micro-Frontends
+- Geospatial web components/Micro-Frontends
   - Popup configurator
   - Effects
   - Sketch
