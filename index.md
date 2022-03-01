@@ -11,7 +11,7 @@
 # Agenda
 
 - Geospatial Components <!-- Matt -->
-  - Background (Why?)<!-- Matt -->
+  - Background (How/Why)<!-- Matt -->
   - Composition (JSAPI/Calcite Design System)<!-- Matt -->
   - Architecture (Web Components/Stencil.js)<!-- Matt -->
 - Demo: Esri web apps using geospatial components <!-- Dhrumil -->
