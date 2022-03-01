@@ -20,13 +20,21 @@
 
 ---
 
+# Geospatial components
+
+ - Higher level
+ - GIS functionality
+
+---
+
 # Geospatial Components Background
 
 - Map Viewer(2019)
   - Major browsers started supporting web components
   - Calcite design system
-- Re-use entire workflows in the new map viewer and other applications
-- Framework agnostic
+- Components
+  - Re-use entire workflows in the new map viewer and other applications
+  - Framework agnostic
 
 ---
 
