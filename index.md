@@ -257,28 +257,18 @@ When rendered, the browser will display "My name is Matt"
 
 ---
 
-# Map viewer setup
+# Map viewer Architecture
 
 - Host application
-  - Maquette.js
-- Geospatial web components/Micro-Frontends
-  - Popup configurator
-  - Effects
-  - Sketch
-  - Charts
-  - etc...
-
----
-
-# Demo: Esri web apps using geospatial components
-
----
-
-# Geospatial components patterns & practices
+  - It provides the application shell which is built using the calcite components based on the ArcGIS for JavaScript Widget framework
 
 - Map Viewer is built as a micro frontend based application as a composition of features developed as web components by different teams.
   - Example: Charts authoring and rendering components were built by a team and it was integrated to Map Viewer.
 
+# Micro frontend Architecture
+
+- Map Viewer is built as a micro frontend based application as a composition of features developed as web components by different teams.
+-  
 - Micro frontend composition in the browser: Using Web Components provides us a client-side composition approach to compose these different features to map viewer.
 
 - Benefits of Micro frontend Architecture
@@ -286,6 +276,19 @@ When rendered, the browser will display "My name is Matt"
   - Easier change management: Since we are building smaller component based micro apps which are independent from the application it simplifies change management.
   - Speed of Development: The autonomy in decision making allows the component teams to deliver the features much more faster than the traditional model.
   - Mission Focussed: Each feature being built as Micro Applications using web component means it is more focussed in its mission to develop, test and refactor than monolith.
+  
+- Some of the Geospatial web components/Micro-Frontends used in Map Viewer
+  - Popup configurator
+  - Effects
+  - Sketch
+  - Charts
+  - Symbology
+
+# Demo: Esri web apps using geospatial components
+
+---
+
+# Geospatial components patterns & practices
 
 - Best Practices and Patterns
 
