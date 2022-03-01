@@ -33,10 +33,17 @@
 # Geospatial Components Composition
 
 - Composed of
-  - ArcGIS JS API
-  - Calcite Design System & Web Components
+  - [ArcGIS JS API](https://developers.arcgis.com/javascript/latest/)
+  - [Calcite Design System](https://developers.arcgis.com/calcite-design-system/)
+    - [Components](https://developers.arcgis.com/calcite-design-system/components/)
 - Built as a web component
-  - Using Stencil.js
+  - Using [Stencil.js](https://stenciljs.com/) toolchain
+
+---
+
+# ArcGIS JS API
+
+- TODO> JUST SOME SIMPLE MAP IMAGE
 
 ---
 
@@ -68,9 +75,9 @@
 
 ---
 
-# Benefits
+# Calcite Benefits
 
-Benefits of Calcite
+![zoology](img/zoology.png)
 
 ---
 
@@ -134,8 +141,8 @@ Benefits of Calcite
   - Browser-compatible elements
   - Use native APIs
   - DOM element lifecycle
-- HTML templates & slotting
-- `<template>` and `<slot>` elements
+- HTML slotting
+- `<slot>` elements
 - Shadow DOM
   - Encapsulates component HTML & CSS
   - `<slot>` tag for distributing content
@@ -144,10 +151,10 @@ Benefits of Calcite
 
 # Configuring Web Components
 
-Primary ways to configure a web component
-
 - Properties/Attributes
+  - `<my-component prop="myValue"></my-component>`
 - Slots
+  - `<my-component><button slot="footer" /></my-component>`
 
 ---
 
@@ -158,7 +165,7 @@ To customize certain regions
 ```html
 <calcite-card>
   <h3 slot="title">Nicolas Cage</h3>
-  <img slot="thumbnail" src="https://www.placecage.com/c/300/150" />
+  <img slot="thumbnail" src="https://www.placecage.com/c/300/136" />
   <span slot="subtitle"
     >Nicolas Kim Coppola, known professionally as Nicolas Cage, is an American
     actor and filmmaker.</span
@@ -258,7 +265,7 @@ export class MyComponent {
 <my-first-component name="Matt"></my-first-component>
 ```
 
-When rendered, the browser will display "My name is Matt"
+When rendered, the browser will display `My name is Matt`
 
 ---
 
