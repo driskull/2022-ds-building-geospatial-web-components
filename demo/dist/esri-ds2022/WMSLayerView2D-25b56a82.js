@@ -1,0 +1,121 @@
+import { c as s, e, f as d, i, s as s$1, a8 as g$1, aR as M } from './vec2f32-96e18450.js';
+import { t } from './BitmapContainer-4526aeed.js';
+import { l as l$2, u as u$1 } from './LayerView-13e16160.js';
+import { S } from './ExportStrategy-a7c1c0a8.js';
+import { i as i$1 } from './RefreshableLayerView-dd3fccc1.js';
+import { g } from './commonProperties-73952058.js';
+import { l as l$1 } from './ExportWMSImageParameters-ed76395d.js';
+import './WGLContainer-3803447f.js';
+import './esri-ds2022-map-viewer-eaf1b8e9.js';
+import './index-5d892dab.js';
+import './CollectionFlattener-52fb1d3d.js';
+import './HandleOwner-e0d82d22.js';
+import './Handles-b3021138.js';
+import './reactiveUtils-5f9c851d.js';
+import './watchUtils-be3a5f50.js';
+import './TablesMixin-6baefa72.js';
+import './MultiOriginJSONSupport-4c0182cb.js';
+import './iteratorUtils-07a71e8c.js';
+import './workers-2517158a.js';
+import './widget-443283ac.js';
+import './uuid-917a1a17.js';
+import './UniqueValueRenderer-59efe757.js';
+import './VisualVariablesMixin-f7c8cd7e.js';
+import './colorRamps-44ecefda.js';
+import './diffUtils-c0512c3e.js';
+import './styleUtils-c0536af9.js';
+import './executeQueryJSON-f8f32f18.js';
+import './utils-502612a2.js';
+import './scaleUtils-009949b4.js';
+import './floorFilterUtils-a09da11b.js';
+import './query-9613ab47.js';
+import './normalizeUtils-11d276d0.js';
+import './arcgisLayerUrl-e91052aa.js';
+import './pbfQueryUtils-88213282.js';
+import './pbf-b57823c1.js';
+import './OptimizedFeature-e99a2ed3.js';
+import './OptimizedFeatureSet-27736f1f.js';
+import './queryZScale-a6b03c33.js';
+import './zscale-075392a1.js';
+import './Query-f41de01f.js';
+import './TimeExtent-ef5feff1.js';
+import './Field-9ae21d09.js';
+import './fieldType-40139de8.js';
+import './FeatureSet-d05d7baa.js';
+import './TopFeaturesQuery-21746d72.js';
+import './QueryTask-427a128b.js';
+import './featureConversionUtils-7cc244e3.js';
+import './Task-9d37536c.js';
+import './languageUtils-f4f0b3a9.js';
+import './_commonjsHelpers-321aa363.js';
+import './number-7fa2c19d.js';
+import './FeatureLayer-41ac22f1.js';
+import './DictionaryRenderer-148f4879.js';
+import './LRUCache-6d357264.js';
+import './MemCache-e9a0d4f9.js';
+import './jsonUtils-e58c15d9.js';
+import './HeightModelInfo-533ad021.js';
+import './APIKeyMixin-ee03b0ff.js';
+import './ArcGISService-bc55d6c8.js';
+import './BlendLayer-9582dc10.js';
+import './mat4-59c51b41.js';
+import './_commonjsHelpers-020ca939.js';
+import './CustomParametersMixin-5d83f8a3.js';
+import './labelingInfo-653f3665.js';
+import './FeatureReductionCluster-303b0389.js';
+import './OperationalLayer-f90d3a65.js';
+import './OrderedLayer-84b64b6e.js';
+import './PortalLayer-f5d3d653.js';
+import './RefreshableLayer-7eca1761.js';
+import './ScaleRangeLayer-cc4d317e.js';
+import './TemporalLayer-8778bd70.js';
+import './TimeInfo-753c74d8.js';
+import './FeatureType-3ed2e985.js';
+import './fieldProperties-7830ae70.js';
+import './FieldsIndex-a573ae50.js';
+import './LayerFloorInfo-742e79c9.js';
+import './styleUtils-ccdaf8b0.js';
+import './popupUtils-0b9004db.js';
+import './utils-c0e0f562.js';
+import './ItemCache-9513db1b.js';
+import './utils-86b5682d.js';
+import './TileStore-29b58dac.js';
+import './TileKey-a82c8402.js';
+import './quickselect-ccfd8cff.js';
+import './TileInfo-6783c707.js';
+import './GraphicsCollection-0a597532.js';
+import './Scheduler-00477592.js';
+import './projection-f0a42b06.js';
+import './unitBezier-0f2e6a45.js';
+import './vec2f64-503345b4.js';
+import './mat3-4c6d002d.js';
+import './TileStrategy-7c347526.js';
+import './screenshotUtils-ea21e5e9.js';
+import './capabilities-3951b735.js';
+import './definitions-08701efa.js';
+import './VertexArrayObject-8085edfb.js';
+import './Texture-877bd154.js';
+import './Utils-b64a9f45.js';
+import './number-237bc27c.js';
+import './ShaderCompiler-0c24df35.js';
+import './config-768959de.js';
+import './GeometryUtils-09c2f88c.js';
+import './MaterialKey-55ff2aea.js';
+import './pixelUtils-56825141.js';
+import './Container-a9726ab4.js';
+import './earcut-05cd758b.js';
+import './Bitmap-c04369b7.js';
+
+/*
+All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+See https://js.arcgis.com/4.22/esri/copyright.txt for details.
+*/
+const a=a=>{let i$1=class extends a{initialize(){this.exportImageParameters=new l$1({layer:this.layer});}destroy(){this.exportImageParameters.destroy(),this.exportImageParameters=null;}get exportImageVersion(){var e;return null==(e=this.exportImageParameters)||e.commitProperty("version"),this.commitProperty("timeExtent"),(this._get("exportImageVersion")||0)+1}fetchPopupFeatures(e){const{layer:t}=this;if(!e)return Promise.reject(new s("wmslayerview:fetchPopupFeatures","Nothing to fetch without area",{layer:t}));const{popupEnabled:o}=t;if(!o)return Promise.reject(new s("wmslayerview:fetchPopupFeatures","popupEnabled should be true",{popupEnabled:o}));const s$1=this.createFetchPopupFeaturesQuery(e);if(!s$1)return Promise.resolve([]);const{extent:p,width:a,height:i,x:m,y:n}=s$1;if(!(p&&a&&i))throw new s("wmslayerview:fetchPopupFeatures","WMSLayer does not support fetching features.",{extent:p,width:a,height:i});const u=t.fetchFeatureInfo(p,a,i,m,n);return Promise.resolve(u?[u]:[])}};return e([d()],i$1.prototype,"exportImageParameters",void 0),e([d({readOnly:!0})],i$1.prototype,"exportImageVersion",null),e([d()],i$1.prototype,"layer",void 0),e([d(g)],i$1.prototype,"timeExtent",void 0),i$1=e([i("esri.layers.mixins.WMSLayerView")],i$1),i$1};
+
+/*
+All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+See https://js.arcgis.com/4.22/esri/copyright.txt for details.
+*/
+const l=s$1.getLogger("esri.views.2d.layers.WMSLayerView2D");let y=class extends(a(i$1(l$2(u$1)))){initialize(){const{layer:e,view:r}=this;e.supportsSpatialReference(r.spatialReference)||this.addResolvingPromise(Promise.reject(new s("layerview:spatial-reference-incompatible","The spatial references supported by this WMS layer are incompatible with the spatial reference of the view",{layer:e})));}update(e){this.strategy.update(e).catch((e=>{g$1(e)||l.error(e);}));}attach(){const{layer:e}=this,{imageMaxHeight:t$1,imageMaxWidth:r}=e;this._bitmapContainer=new t,this.container.addChild(this._bitmapContainer),this.strategy=new S({container:this._bitmapContainer,fetchSource:this.fetchImage.bind(this),requestUpdate:this.requestUpdate.bind(this),imageMaxHeight:t$1,imageMaxWidth:r,imageRotationSupported:!1,imageNormalizationSupported:!1,hidpi:!1}),this.handles.add(this.watch("exportImageVersion",(()=>this.requestUpdate())),"exportImageVersion");}detach(){this.handles.remove("exportImageVersion"),this.strategy.destroy(),this.container.removeChild(this._bitmapContainer),this._bitmapContainer.removeAllChildren();}moveStart(){}viewChange(){}moveEnd(){this.requestUpdate();}createFetchPopupFeaturesQuery(e){const{view:t}=this,r=this._bitmapContainer,{x:i,y:s}=e,{spatialReference:a}=t;let n=null,p=0,m=0;if(r.children.some((e=>{const{width:t,height:r,resolution:h,x:c,y:d}=e,l=c+h*t,y=d-h*r;return i>=c&&i<=l&&s<=d&&s>=y&&(n=new M({xmin:c,ymin:y,xmax:l,ymax:d,spatialReference:a}),p=t,m=r,!0)})),!n)return null;const h=n.width/p,c=Math.round((i-n.xmin)/h),d=Math.round((n.ymax-s)/h);return {extent:n,width:p,height:m,x:c,y:d}}async doRefresh(){this.requestUpdate();}isUpdating(){return this.strategy.updating||this.updateRequested}fetchImage(e,t,r,i){return this.layer.fetchImage(e,t,r,{timeExtent:this.timeExtent,...i})}};e([d()],y.prototype,"strategy",void 0),e([d()],y.prototype,"updating",void 0),y=e([i("esri.views.2d.layers.WMSLayerView2D")],y);const u=y;
+
+export default u;

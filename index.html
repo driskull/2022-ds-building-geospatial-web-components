@@ -1,101 +1,90 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
 
-    <title>Building Geospatial Web Components</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <link rel="stylesheet" href="dist/reset.css" />
-    <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/black.css" />
+  <title>Building Geospatial Web Components</title>
 
-    <script
-      type="module"
-      src="https://js.arcgis.com/calcite-components/1.0.0-beta.77/calcite.esm.js"
-    ></script>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://js.arcgis.com/calcite-components/1.0.0-beta.77/calcite.css"
-    />
+  <link rel="stylesheet" href="dist/reset.css" />
+  <link rel="stylesheet" href="dist/reveal.css" />
+  <link rel="stylesheet" href="dist/theme/black.css" />
 
-    <!-- Override the Reveal theme varables: -->
-    <!-- https://github.com/hakimel/reveal.js/blob/master/css/theme/template/exposer.scss -->
-    <style type="text/css">
-      :root {
-        /* Color from slides */
-        --r-background-color: #01114f;
+  <script type="module" src="https://js.arcgis.com/calcite-components/1.0.0-beta.77/calcite.esm.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/1.0.0-beta.77/calcite.css" />
 
-        /* Main text color */
-        --r-main-color: #fff;
+  <!-- Override the Reveal theme varables: -->
+  <!-- https://github.com/hakimel/reveal.js/blob/master/css/theme/template/exposer.scss -->
+  <style type="text/css">
+    :root {
+      /* Color from slides */
+      --r-background-color: #01114f;
 
-        /* Arial font is recommended */
-        --r-heading-font: Arial, Helvetica Neue, Helvetica, sans-serif;
-        --r-main-font: Arial, Helvetica Neue, Helvetica, sans-serif;
+      /* Main text color */
+      --r-main-color: #fff;
 
-        /* For consistency with the template: */
-        --r-heading-font-weight: normal;
-        --r-heading-text-transform: none;
-        --r-heading-text-shadow: none;
+      /* Arial font is recommended */
+      --r-heading-font: Arial, Helvetica Neue, Helvetica, sans-serif;
+      --r-main-font: Arial, Helvetica Neue, Helvetica, sans-serif;
 
-        /* Section subheader color per theme */
-        --r-section-subhead-color: #00ec86;
-      }
+      /* For consistency with the template: */
+      --r-heading-font-weight: normal;
+      --r-heading-text-transform: none;
+      --r-heading-text-shadow: none;
 
-      .reveal section img {
-        border: none;
-        background: none;
-        box-shadow: none;
-      }
+      /* Section subheader color per theme */
+      --r-section-subhead-color: #00ec86;
+    }
 
-      .reveal code {
-        color: orange;
-        font-style: italic;
-      }
+    .reveal section img {
+      border: none;
+      background: none;
+      box-shadow: none;
+    }
 
-      .reveal pre code {
-        color: white;
-      }
+    .reveal code {
+      color: orange;
+      font-style: italic;
+    }
 
-      .reveal {
-        --r-main-font-size: 34px;
-      }
-    </style>
+    .reveal pre code {
+      color: white;
+    }
 
-    <!-- Theme used for syntax highlighted code -->
-    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
-        <!-- Slides are derived from external markdown -->
-        <section
-          data-markdown="index.md"
-          data-separator="^\r?\n---\r?\n"
-          data-separator-vertical="^\r?\n------\r?\n"
-          data-background="img/2022/dev-summit/bg-2.png"
-        ></section>
-      </div>
+    .reveal {
+      --r-main-font-size: 32px;
+    }
+  </style>
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Slides are derived from external markdown -->
+      <section data-markdown="index.md" data-separator="^\r?\n---\r?\n" data-separator-vertical="^\r?\n------\r?\n"
+        data-background="img/2022/dev-summit/bg-2.png"></section>
     </div>
+  </div>
 
-    <script src="dist/reveal.js"></script>
-    <script src="plugin/notes/notes.js"></script>
-    <script src="plugin/markdown/markdown.js"></script>
-    <script src="plugin/highlight/highlight.js"></script>
-    <script>
-      // More info about initialization & config:
-      // - https://revealjs.com/initialization/
-      // - https://revealjs.com/config/
-      Reveal.initialize({
-        hash: true,
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
 
-        // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-      });
-    </script>
-  </body>
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+    });
+  </script>
+</body>
+
 </html>
