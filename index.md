@@ -20,16 +20,15 @@
 
 ---
 
-# Geospatial Components
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
- - Higher level
- - GIS functionality
+# Geospatial Components
 
 ---
 
-# Geospatial Components Background
+# Background
 
-- Map Viewer(2019)
+- Map Viewer (2019)
   - Major browsers started supporting web components
   - Calcite design system
 - Components
@@ -38,20 +37,28 @@
 
 ---
 
-# Geospatial Components Composition
+# What are they?
 
-- Composed of
-  - [ArcGIS JS API](https://developers.arcgis.com/javascript/latest/)
-  - [Calcite Design System](https://developers.arcgis.com/calcite-design-system/)
-    - [Components](https://developers.arcgis.com/calcite-design-system/components/)
-- Built as a web component
-  - Using [Stencil.js](https://stenciljs.com/) toolchain
+ - Higher level componnets
+ - GIS functionality (JSAPI)
 
 ---
 
-# ArcGIS JS API
+# Composition
 
-![jsapi](img/jsapi.png)
+- Composed of
+  - ArcGIS JS API
+  - Calcite Design System
+    - Components
+- Built as a web component
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# ArcGIS API for JavaScript
+
+[![jsapi](img/jsapi.png)](https://developers.arcgis.com/javascript/latest/)
 
 ---
 
@@ -59,16 +66,14 @@
 
 # Calcite
 
-![calcite](img/calcite.png)
+[![calcite](img/calcite.png)](https://developers.arcgis.com/calcite-design-system/)
 
 ---
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
 # Calcite: Esri's design system
 
 - Visual language for products
-  - Design guidelines
+  - [Design guidelines](https://developers.arcgis.com/calcite-design-system/foundations/colors/)
     - Color, Spacing, Typography...
   - Graphic resources (Icons, symbols, Figma UI Kit)
   - Interactive documentation
@@ -78,7 +83,7 @@
 
 ---
 
-# Calcite components
+# Calcite Components
 
 - Web Components for Calcite Design System
   - 50+ web components
@@ -91,9 +96,21 @@
 
 ---
 
-# Calcite Benefits
+# Componenent Documentation
+
+[![components](img/components.png)](https://developers.arcgis.com/calcite-design-system/components/)
+
+---
+
+# Types
 
 ![zoology](img/zoology.png)
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# Calcite Benefits
 
 ---
 
@@ -143,7 +160,7 @@
 
 # Web Components
 
-![components](img/components.png)
+![Web Components](img/webcomponentslogo.png)
 
 ---
 
@@ -151,13 +168,14 @@
 
 - Suite of different technologies (web standards)
 - Allows you to create reusable custom elements
+  - `<my-custom-element>`
   - Functionality encapsulated
   - Utilize them in your web apps
 - Supported by modern browsers
 
 ---
 
-# Web Components Tech
+# Technology
 
 - Custom elements
   - Browser-compatible elements
