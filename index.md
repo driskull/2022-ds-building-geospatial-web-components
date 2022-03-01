@@ -10,13 +10,32 @@
 
 # Agenda
 
-Building Geospatial Web Components
-
+- Intro to Geospatial Components <!-- Matt -->
 - Calcite Design System <!-- Matt -->
 - Web components <!-- Matt -->
-- Demo: Esri web apps using geospatial components
-- Geospatial components patterns & practices <!-- Here we talk about patterns, best practices, jsapi intergration, etc -->
-- Demo: Sample app using geospatial components
+- Demo: Esri web apps using geospatial components <!-- Dhrumil -->
+- Geospatial components patterns & practices <!-- Here we talk about patterns, best practices, jsapi intergration, etc --> <!-- Dhrumil -->
+- Demo: Sample app using geospatial components  <!-- Matt/Dhrumil -->
+
+---
+
+# Geospatial Components Composition
+
+- Composed of
+  - ArcGIS JS API
+  - Calcite Design System & Web Components
+- Built as a web component
+  - Stencil.js
+
+---
+
+# Geospatial Components
+
+- Map Viewer(2019)
+  - Major browsers started supporting web components
+  - Calcite design system
+- Re-use entire workflows in the new map viewer and other applications
+- Framework agnostic
 
 ---
 
@@ -239,26 +258,6 @@ export class MyComponent {
 ```
 
 When rendered, the browser will display "My name is Matt"
-
----
-
-# Geospatial Components
-
-- Map Viewer(2019)
-  - Major browsers started supporting web components
-  - Calcite design system
-- Re-use entire workflows in the new map viewer and other applications
-- Framework agnostic
-
----
-
-# Geospatial Components Composition
-
-- Composed of
-  - ArcGIS JS API
-  - Calcite Design System components
-- Built as a web component
-  - Stencil.js
 
 ---
 
