@@ -20,7 +20,7 @@
 
 ---
 
-# Geospatial components
+# Geospatial Components
 
  - Higher level
  - GIS functionality
