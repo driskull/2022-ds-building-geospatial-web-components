@@ -276,6 +276,25 @@ When rendered, the browser will display "My name is Matt"
 
 # Geospatial components patterns & practices
 
+- Map Viewer is built as a micro frontend based application as a composition of features developed as web components by different teams.
+  - Example: Charts authoring and rendering components were built by a team and it was integrated to Map Viewer.
+
+- Micro frontend composition in the browser: Using Web Components provides us a client-side composition approach to compose these different features to map viewer.
+
+- Benefits of Micro frontend Architecture
+  - Independence: In a traditional monolithic architecture, The application is tied to one single framework, whereas in Micro frontend approach the components like charts, popups can chose their own technology stack, are self-contained and independently upgradable.
+  - Easier change management: Since we are building smaller component based micro apps which are independent from the application it simplifies change management.
+  - Speed of Development: The autonomy in decision making allows the component teams to deliver the features much more faster than the traditional model.
+  - Mission Focussed: Each feature being built as Micro Applications using web component means it is more focussed in its mission to develop, test and refactor than monolith.
+
+- Best Practices and Patterns
+
+  - Shared Design System: As multiple teams are building components to use in Map Viewer like large application , having a shared design system like calcite components becomes important to provide consistent look and feel across all frontend components.
+  - "Props Down, Events Up" communication pattern is used from the MapViewer App to pass different required properties in each micro app based components.
+  - It is recommended the Components get the application state via Props than having shared state with the Application Shell.
+
+-
+
 ---
 
 # Demo: Sample app using geospatial components
