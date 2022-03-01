@@ -10,9 +10,9 @@
 
 # Agenda
 
-- Intro to Geospatial Components <!-- Matt -->
-- Calcite Design System <!-- Matt -->
-- Web components <!-- Matt -->
+- Geospatial Components <!-- Matt -->
+  - Calcite Design System <!-- Matt -->
+  - Web components <!-- Matt -->
 - Demo: Esri web apps using geospatial components <!-- Dhrumil -->
 - Geospatial components patterns & practices <!-- Here we talk about patterns, best practices, jsapi intergration, etc --> <!-- Dhrumil -->
 - Demo: Sample app using geospatial components  <!-- Matt/Dhrumil -->
@@ -25,7 +25,7 @@
   - ArcGIS JS API
   - Calcite Design System & Web Components
 - Built as a web component
-  - Stencil.js
+  - Using Stencil.js
 
 ---
 
