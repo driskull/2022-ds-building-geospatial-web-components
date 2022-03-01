@@ -10,9 +10,10 @@
 
 # Agenda
 
+Building Geospatial Web Components
+
 - Calcite Design System <!-- Matt -->
 - Web components <!-- Matt -->
-- Geospatial components <!-- Matt: Intro/background: how this got started. -->
 - Demo: Esri web apps using geospatial components
 - Geospatial components patterns & practices <!-- Here we talk about patterns, best practices, jsapi intergration, etc -->
 - Demo: Sample app using geospatial components
@@ -183,6 +184,10 @@ class MyComponent extends HTMLElement {
 }
 
 customElements.define("my-component", MyComponent);
+```
+
+```html
+<my-component></my-component>
 ```
 
 ---
