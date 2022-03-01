@@ -262,7 +262,8 @@ export class MyComponent {
 # Basic Component HTML Markup
 
 ```html
-<my-first-component name="Matt"></my-first-component>
+<my-first-component name="Matt">
+</my-first-component>
 ```
 
 When rendered, the browser will display `My name is Matt`
@@ -302,8 +303,8 @@ When rendered, the browser will display `My name is Matt`
   - Sketch
   - Charts
   - Symbology
- 
-  
+
+
 # Demo: Esri web apps using geospatial components
 
 ---
