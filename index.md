@@ -49,6 +49,14 @@
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
+# Calcite
+
+![calcite](img/calcite.png)
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
 # Calcite: Esri's design system
 
 - Visual language for products
@@ -125,6 +133,12 @@
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
+# Web Components
+
+![components](img/components.png)
+
+---
+
 # About Web Components
 
 - Suite of different technologies (web standards)
@@ -151,10 +165,17 @@
 
 # Configuring Web Components
 
-- Properties/Attributes
-  - `<my-component prop="myValue"></my-component>`
-- Slots
-  - `<my-component><button slot="footer" /></my-component>`
+Properties & Attributes
+
+```html
+<my-component prop="myValue"></my-component>
+```
+
+Slots
+
+```html
+<my-component><button slot="footer" /></my-component>
+```
 
 ---
 
@@ -223,8 +244,6 @@ customElements.define("my-component", MyComponent);
 
 # Building Web Components
 
-How we're building web components
-
 ---
 
 # Stencil.js
@@ -232,9 +251,9 @@ How we're building web components
 [![Stencil.js](img/stencil-logo.png)](https://stenciljs.com/)
 
 - Toolchain for building Design Systems
-- Ionic Framework team
+- Built by Ionic Framework team
 - Compiles Web Components
-- Virtual DOM, Typescript and JSX
+- Virtual DOM, Typescript, and JSX
 - [Getting Started](https://stenciljs.com/docs/getting-started)
 
 ---
