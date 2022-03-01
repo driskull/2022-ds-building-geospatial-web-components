@@ -289,23 +289,9 @@ When rendered, the browser will display `My name is Matt`
 
 ---
 
-# Geospatial Components
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-- Map Viewer(2019)
-  - Major browsers started supporting web components
-  - Calcite design system
-- Re-use entire workflows in the new map viewer and other applications
-- Framework agnostic
-
----
-
-# Geospatial Components Composition
-
-- Composed of
-  - ArcGIS JS API
-  - Calcite Design System components
-- Built as a web component
-  - Stencil.js
+# Architecture
 
 ---
 
