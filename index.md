@@ -43,7 +43,7 @@
 
 # ArcGIS JS API
 
-- TODO> JUST SOME SIMPLE MAP IMAGE
+![jsapi](img/jsapi.png)
 
 ---
 
