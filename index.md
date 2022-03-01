@@ -13,9 +13,12 @@
 - Geospatial Components <!-- Matt -->
   - Background (How/Why)<!-- Matt -->
   - Composition (JSAPI/Calcite Design System)<!-- Matt -->
-  - Architecture (Web Components/Stencil.js)<!-- Matt -->
+  - Component Architecture (Web Components/Stencil.js)<!-- Matt -->
+- Patterns & Practices <!-- Dhrumil -->
+  - JSAPI Integration <!-- Dhrumil -->
+- Application Architecture <!-- Dhrumil -->
+  - Benefits <!-- Dhrumil -->
 - Demo: Esri web apps using geospatial components <!-- Dhrumil -->
-- Geospatial components patterns & practices <!-- Here we talk about patterns, best practices, jsapi intergration, etc --> <!-- Dhrumil -->
 - Demo: Sample app using geospatial components  <!-- Dhrumil & Matt -->
 
 ---
@@ -268,7 +271,7 @@ customElements.define("my-component", MyComponent);
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-# Building Web Components
+# Component Architecture
 
 ---
 
@@ -317,7 +320,13 @@ When rendered, the browser will display `My name is Matt`
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-# Architecture
+# Patterns & Practices
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# Application Architecture
 
 ---
 
