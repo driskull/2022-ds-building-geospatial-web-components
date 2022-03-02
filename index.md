@@ -11,43 +11,74 @@
 # Agenda
 
 - Geospatial Components <!-- Matt -->
-  - Background (Why?)<!-- Matt -->
+  - Background (How/Why)<!-- Matt -->
   - Composition (JSAPI/Calcite Design System)<!-- Matt -->
-  - Architecture (Web Components/Stencil.js)<!-- Matt -->
+  - Component Architecture (Web Components/Stencil.js)<!-- Matt -->
+- Patterns & Practices <!-- Dhrumil -->
+  - JSAPI Integration <!-- Dhrumil -->
+- Application Architecture <!-- Dhrumil -->
+  - Benefits <!-- Dhrumil -->
 - Demo: Esri web apps using geospatial components <!-- Dhrumil -->
-- Geospatial components patterns & practices <!-- Here we talk about patterns, best practices, jsapi intergration, etc --> <!-- Dhrumil -->
-- Demo: Sample app using geospatial components  <!-- Matt/Dhrumil -->
-
----
-
-# Geospatial Components Background
-
-- Map Viewer(2019)
-  - Major browsers started supporting web components
-  - Calcite design system
-- Re-use entire workflows in the new map viewer and other applications
-- Framework agnostic
-  
-[![Map Viewer with Charts](img/chart1.png)]
-
----
-
-# Geospatial Components Composition
-
-- Composed of
-  - ArcGIS JS API
-  - Calcite Design System & Web Components
-- Built as a web component
-  - Using Stencil.js
+- Demo: Sample app using geospatial components  <!-- Dhrumil & Matt -->
 
 ---
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
+# Geospatial Components
+
+---
+
+# Background
+
+- Map Viewer (2019)
+  - Major browsers started supporting web components
+  - Calcite design system
+- Components
+  - Re-use entire workflows in the new map viewer and other applications
+  - Framework agnostic
+
+[![Map Viewer with Charts](img/chart1.png)]
+
+---
+
+# What are they?
+
+- Higher level componnets
+- GIS functionality (JSAPI)
+
+---
+
+# Composition
+
+- Composed of
+  - ArcGIS JS API
+  - Calcite Design System
+    - Components
+- Built as a web component
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# ArcGIS API for JavaScript
+
+[![jsapi](img/jsapi.png)](https://developers.arcgis.com/javascript/latest/)
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# Calcite
+
+[![calcite](img/calcite.png)](https://developers.arcgis.com/calcite-design-system/)
+
+---
+
 # Calcite: Esri's design system
 
 - Visual language for products
-  - Design guidelines
+  - [Design guidelines](https://developers.arcgis.com/calcite-design-system/foundations/colors/)
     - Color, Spacing, Typography...
   - Graphic resources (Icons, symbols, Figma UI Kit)
   - Interactive documentation
@@ -57,7 +88,7 @@
 
 ---
 
-# Calcite components
+# Calcite Components
 
 - Web Components for Calcite Design System
   - 50+ web components
@@ -70,9 +101,21 @@
 
 ---
 
-# Benefits
+# Componenent Documentation
 
-Benefits of Calcite
+[![components](img/components.png)](https://developers.arcgis.com/calcite-design-system/components/)
+
+---
+
+# Types
+
+![zoology](img/zoology.png)
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# Calcite Benefits
 
 ---
 
@@ -120,24 +163,31 @@ Benefits of Calcite
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
+# Web Components
+
+![Web Components](img/webcomponentslogo.png)
+
+---
+
 # About Web Components
 
 - Suite of different technologies (web standards)
 - Allows you to create reusable custom elements
+  - `<my-custom-element>`
   - Functionality encapsulated
   - Utilize them in your web apps
 - Supported by modern browsers
 
 ---
 
-# Web Components Tech
+# Technology
 
 - Custom elements
   - Browser-compatible elements
   - Use native APIs
   - DOM element lifecycle
-- HTML templates & slotting
-- `<template>` and `<slot>` elements
+- HTML slotting
+- `<slot>` elements
 - Shadow DOM
   - Encapsulates component HTML & CSS
   - `<slot>` tag for distributing content
@@ -146,10 +196,17 @@ Benefits of Calcite
 
 # Configuring Web Components
 
-Primary ways to configure a web component
+Properties & Attributes
 
-- Properties/Attributes
-- Slots
+```html
+<my-component prop="myValue"></my-component>
+```
+
+Slots
+
+```html
+<my-component><button slot="footer" /></my-component>
+```
 
 ---
 
@@ -160,7 +217,7 @@ To customize certain regions
 ```html
 <calcite-card>
   <h3 slot="title">Nicolas Cage</h3>
-  <img slot="thumbnail" src="https://www.placecage.com/c/300/150" />
+  <img slot="thumbnail" src="https://www.placecage.com/c/300/136" />
   <span slot="subtitle"
     >Nicolas Kim Coppola, known professionally as Nicolas Cage, is an American
     actor and filmmaker.</span
@@ -216,9 +273,7 @@ customElements.define("my-component", MyComponent);
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-# Building Web Components
-
-How we're building web components
+# Component Architecture
 
 ---
 
@@ -227,9 +282,9 @@ How we're building web components
 [![Stencil.js](img/stencil-logo.png)](https://stenciljs.com/)
 
 - Toolchain for building Design Systems
-- Ionic Framework team
+- Built by Ionic Framework team
 - Compiles Web Components
-- Virtual DOM, Typescript and JSX
+- Virtual DOM, Typescript, and JSX
 - [Getting Started](https://stenciljs.com/docs/getting-started)
 
 ---
@@ -257,30 +312,23 @@ export class MyComponent {
 # Basic Component HTML Markup
 
 ```html
-<my-first-component name="Matt"></my-first-component>
+<my-first-component name="Matt">
+</my-first-component>
 ```
 
-When rendered, the browser will display "My name is Matt"
+When rendered, the browser will display `My name is Matt`
 
 ---
 
-# Geospatial Components
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-- Map Viewer(2019)
-  - Major browsers started supporting web components
-  - Calcite design system
-- Re-use entire workflows in the new map viewer and other applications
-- Framework agnostic
+# Patterns & Practices
 
 ---
 
-# Geospatial Components Composition
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
 
-- Composed of
-  - ArcGIS JS API
-  - Calcite Design System components
-- Built as a web component
-  - Stencil.js
+# Application Architecture
 
 ---
 
