@@ -346,17 +346,12 @@ When rendered, the browser will display `My name is Matt`
   - Charts
   - Symbology
 
-# Demo: Esri web apps using geospatial components
-
-- [Charts Components in Map Viewer](https://analysis-0.maps.arcgis.com/apps/mapviewer/index.html?webmap=cdd0cc7b23e04873b74f0f160dd2e7c9)
-- [Charts Components in Charts Viewer Instant App](https://analysis-0.maps.arcgis.com/apps/instant/charts/index.html?appid=076e071d336d4f0eb90fdf1c535ae379)
-
 ---
 
 # Benefits of Micro frontend  Architecture
 
 - Benefits of Micro frontend Architecture
-  - Independence: In a traditional monolithic architecture, The application is tied to one single framework, whereas in Micro frontend approach the components like charts, popups can chose their own technology stack, are self-contained and independently upgradable.
+  - Independence: Each Micro App is self-contained and independently upgradable.
   - Easier change management: Since we are building smaller component based micro apps which are independent from the application it simplifies change management.
   - Speed of Development: The autonomy in decision making allows the component teams to deliver the features much more faster than the traditional model.
   - Mission Focussed: Each feature being built as Micro Applications using web component means it is more focussed in its mission to develop, test and refactor than monolith.
@@ -365,7 +360,7 @@ When rendered, the browser will display `My name is Matt`
 
 - Micro frontend composition in the browser: Using Web Components provides us a client-side composition approach to compose these different features to map viewer.
 
-  - Shared Design System: As multiple teams are building components to use in Map Viewer like large application , having a shared design system like calcite components becomes important to provide consistent look and feel across all frontend components.
+  - Shared Design System: To provide consistent look and feel across all frontend components using design system like calcite is essential.
   - "Props Down, Events Up" communication pattern is used from the MapViewer App to pass different required properties in each micro app based components.
   - It is recommended the Components get the application state via Props than having shared state with the Application Shell.
 
@@ -375,7 +370,8 @@ When rendered, the browser will display `My name is Matt`
 
 # Demo: Sample app using geospatial components
 
-TODO
+- [Charts Components in Map Viewer](https://analysis-0.maps.arcgis.com/apps/mapviewer/index.html?webmap=cdd0cc7b23e04873b74f0f160dd2e7c9)
+- [Charts Components in Charts Viewer Instant App](https://analysis-0.maps.arcgis.com/apps/instant/charts/index.html?appid=076e071d336d4f0eb90fdf1c535ae379)
 
 ---
 
