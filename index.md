@@ -27,6 +27,8 @@
   - Calcite design system
 - Re-use entire workflows in the new map viewer and other applications
 - Framework agnostic
+  
+[![Map Viewer with Charts](img/chart1.png)]
 
 ---
 
@@ -295,9 +297,11 @@ When rendered, the browser will display "My name is Matt"
   - Sketch
   - Charts
   - Symbology
- 
-  
+
 # Demo: Esri web apps using geospatial components
+
+- [Charts Components in Map Viewer](https://analysis-0.maps.arcgis.com/apps/mapviewer/index.html?webmap=cdd0cc7b23e04873b74f0f160dd2e7c9)
+- [Charts Components in Charts Viewer Instant App](https://analysis-0.maps.arcgis.com/apps/instant/charts/index.html?appid=076e071d336d4f0eb90fdf1c535ae379)
 
 ---
 
