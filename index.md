@@ -67,6 +67,20 @@
 
 [![jsapi](img/jsapi.png)](https://developers.arcgis.com/javascript/latest/)
 
+Modern (ES Modules)
+
+```js
+import Map from "@arcgis/core/Map";
+import MapView from "@arcgis/core/views/MapView";
+```
+
+Legacy ([Esri Loader](https://github.com/Esri/esri-loader))
+
+```js
+import { loadModules } from 'esri-loader';
+loadModules(['esri/core/Map', 'esri/views/MapView'])
+```
+
 ---
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
