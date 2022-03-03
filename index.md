@@ -137,12 +137,12 @@ loadModules(['esri/core/Map', 'esri/views/MapView'])
 - Efficiency
   - Apps follow agreed upon designs workflows
   - Speed up development timelines
-- Accessibility (W3 Guidelines)
 - Standards-based
   - W3C specification (future-proof)
   - Encapsulation (Shadow DOM)
   - Familiarity (HTML)
   - Framework agnostic (Can be used in any framework)
+- Accessibility (W3 Guidelines)
 
 ---
 
