@@ -11,15 +11,15 @@
 # Agenda
 
 - Geospatial Components <!-- Matt -->
-  - Background (How/Why)<!-- Matt -->
-  - Composition (JSAPI/Calcite Design System)<!-- Matt -->
-  - Component Architecture (Web Components/Stencil.js)<!-- Matt -->
+  - Background <!-- Matt -->
+  - Composition <!-- Matt -->
+  - Component Architecture <!-- Matt -->
 - Patterns & Practices <!-- Dhrumil -->
   - JSAPI Integration <!-- Dhrumil -->
 - Application Architecture <!-- Dhrumil -->
   - Benefits <!-- Dhrumil -->
-- Demo: Esri web apps using geospatial components <!-- Dhrumil -->
-- Demo: Sample app using geospatial components  <!-- Dhrumil & Matt -->
+- Demo: Esri apps using geospatial components <!-- Dhrumil -->
+- Demo: App using geospatial components  <!-- Dhrumil & Matt -->
 
 ---
 
