@@ -397,15 +397,15 @@ Some of the Geospatial web components/Micro-Frontends used in Map Viewer
 
 ---
 
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
-
-# Questions? 🤔
-
----
-
 # Please Share Your Feedback in the App​
 
 ![Rate](img/rate.png)
+
+---
+
+<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
+
+# Questions? 🤔
 
 ---
 
