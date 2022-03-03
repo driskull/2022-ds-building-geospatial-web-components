@@ -326,6 +326,7 @@ When rendered, the browser will display `My name is Matt`
 ---
 
 # Map viewer Architecture
+
 <style>
 .grid {
   display: grid;
@@ -334,9 +335,10 @@ When rendered, the browser will display `My name is Matt`
 }
 </style>
 <div class="grid">
-  <img src="img/mapvoewer-architecture.png" />
+  <img src="img/mapviewer-architecture.png" />
   <img src="img/chart1.png" />
 </div>
+
 ---
 
 # Host application
@@ -355,11 +357,11 @@ Map Viewer is built as a micro frontend based application as a composition of fe
 
 Some of the Geospatial web components/Micro-Frontends used in Map Viewer
 
-  - Popup configurator
-  - Effects
-  - Sketch
-  - Charts
-  - Symbology
+- Popup configurator
+- Effects
+- Sketch
+- Charts
+- Symbology
 
 ---
 
