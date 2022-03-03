@@ -19,7 +19,7 @@
 - Application Architecture <!-- Dhrumil -->
   - Benefits <!-- Dhrumil -->
 - Demo: Esri apps using geospatial components <!-- Dhrumil -->
-- Demo: App using geospatial components  <!-- Dhrumil & Matt -->
+- Demo: App using geospatial components <!-- Dhrumil & Matt -->
 
 ---
 
@@ -35,8 +35,24 @@
 }
 </style>
 <div class="grid">
-  <img src="img/mapviewer-architecture.png" />
-  <img src="img/chart1.png" />
+  <label><img src="img/chart.gif" />Charts</label>
+  <label><img src="img/label.gif" />Label</label>
+</div>
+
+---
+
+# Geospatial Components
+
+<style>
+.grid {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 50% 50%;
+}
+</style>
+<div class="grid">
+  <label><img src="img/effects.png" />Effects</label>  
+  <label><img src="img/sketch.jpeg" />Sketch</label>  
 </div>
 
 ---
@@ -85,8 +101,8 @@ import MapView from "@arcgis/core/views/MapView";
 Legacy ([esri-loader](https://github.com/Esri/esri-loader))
 
 ```js
-import { loadModules } from 'esri-loader';
-loadModules(['esri/core/Map', 'esri/views/MapView'])
+import { loadModules } from "esri-loader";
+loadModules(["esri/core/Map", "esri/views/MapView"]);
 ```
 
 ---
@@ -209,9 +225,10 @@ To customize certain regions
 <calcite-card>
   <h3 slot="title">Esri</h3>
   <img slot="thumbnail" src="img/esri-card.jpeg" />
-  <span slot="subtitle">Esri is an international supplier
-     of geographic information system software, web GIS
-     and geodatabase management applications.</span>
+  <span slot="subtitle"
+    >Esri is an international supplier of geographic information system
+    software, web GIS and geodatabase management applications.</span
+  >
 </calcite-card>
 ```
 
@@ -248,7 +265,7 @@ For default content placement
 ```js
 class MyComponent extends HTMLElement {
   connectedCallback() {
-    let shadow = this.attachShadow({ mode: 'open' });
+    let shadow = this.attachShadow({ mode: "open" });
     shadow.innerHTML = `<h2>Hello DevSummit!</h2>`;
   }
 }
