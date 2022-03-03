@@ -30,8 +30,8 @@
 <style>
 .grid {
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 500px 500px;
+  grid-gap: 0;
+  grid-template-columns: 50% 50%;
 }
 </style>
 <div class="grid">
