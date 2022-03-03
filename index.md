@@ -37,10 +37,10 @@
 
 # Background
 
-- Map Viewer (2018/2019)
+- New Map Viewer Development (2018/2019)
   - Major browsers started supporting web components
   - Calcite design system
-- Components
+- Need for components
   - Re-use entire workflows in the new map viewer and other applications
   - Framework agnostic
 
