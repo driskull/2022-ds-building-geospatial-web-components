@@ -31,9 +31,13 @@
 
 ---
 
+![Map Viewer with Charts](img/chart.png)
+
+---
+
 # Background
 
-- Map Viewer (2019)
+- Map Viewer (2018/2019)
   - Major browsers started supporting web components
   - Calcite design system
 - Components
@@ -46,8 +50,6 @@
 
 - Higher level componnets
 - GIS functionality (JSAPI)
-
-![Map Viewer with Charts](img/chart.png)
 
 ---
 
@@ -129,47 +131,14 @@ loadModules(['esri/core/Map', 'esri/views/MapView'])
 
 ---
 
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
-
 # Calcite Benefits
 
----
-
-# Consistency <calcite-icon scale="l" icon="thumbs-up"></calcite-icon>
-
 - Consistent UX
-  - Esri identity (look & feel)
-  - Best practices
-  - Conventions
-- Clear direction for designers & developers
-
----
-
-# Efficiency <calcite-icon scale="l" icon="thumbs-up"></calcite-icon>
-
-- Reduced effort & cost
+- Efficiency
   - Apps follow agreed upon designs workflows
-  - Reduce cost of design updates
-  - Reusable (Stop reinventing the wheel)
-- Speed up development timelines
-  - Build Compelling Web Apps Faster
-
----
-
-# Accessibility <calcite-icon scale="l" icon="thumbs-up"></calcite-icon>
-
-- Follows [WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/) (W3 a11y guidelines)
-  - Semantics
-  - Keyboard access
-  - Color contrast
-  - Text alternatives
-- Continuous Integration testing using [deque axe API](https://www.deque.com/)
-
----
-
-# Standards-based <calcite-icon scale="l" icon="thumbs-up"></calcite-icon>
-
-- Web components
+  - Speed up development timelines
+- Accessibility (W3 Guidelines)
+- Standards-based
   - W3C specification (future-proof)
   - Encapsulation (Shadow DOM)
   - Familiarity (HTML)
@@ -301,9 +270,10 @@ customElements.define("my-component", MyComponent);
 
 - Toolchain for building Design Systems
 - Built by [Ionic framework](https://ionicframework.com/) team
-- Compiles Web Components
 - Virtual DOM, Typescript, and JSX
+- Compiles Web Components
 - [Getting Started](https://stenciljs.com/docs/getting-started)
+- Alternatives: Lit, Vuew => web components
 
 ---
 
