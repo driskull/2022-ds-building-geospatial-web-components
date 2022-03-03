@@ -35,7 +35,7 @@
 }
 </style>
 <div class="grid">
-  <img src="img/chart.png" />
+  <img src="img/mapviewer-architecture.png" />
   <img src="img/chart1.png" />
 </div>
 
@@ -326,7 +326,17 @@ When rendered, the browser will display `My name is Matt`
 ---
 
 # Map viewer Architecture
-
+<style>
+.grid {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 50% 50%;
+}
+</style>
+<div class="grid">
+  <img src="img/mapvoewer-architecture.png" />
+  <img src="img/chart1.png" />
+</div>
 ---
 
 # Host application
