@@ -279,7 +279,7 @@ customElements.define("my-component", MyComponent);
 - Virtual DOM, Typescript, and JSX
 - Compiles Web Components
 - [Getting Started](https://stenciljs.com/docs/getting-started)
-- Alternatives: Lit, Vuew => web components
+- Alternatives: Lit, Frameworks => web components
 
 ---
 
