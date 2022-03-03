@@ -137,7 +137,7 @@ loadModules(['esri/core/Map', 'esri/views/MapView'])
 
 ---
 
-# Calcite Benefits
+# Calcite Benefits <calcite-icon scale="l" icon="thumbs-up"></calcite-icon>
 
 - Consistent UX
 - Efficiency
