@@ -56,6 +56,16 @@
       --r-main-font-size: 32px;
     }
   </style>
+  <script>
+    class MyComponent extends HTMLElement {
+      connectedCallback() {
+        let shadow = this.attachShadow({ mode: 'open' });
+        shadow.innerHTML = `<h2>Hello DevSummit!</h2>`;
+      }
+    }
+
+    customElements.define("my-component", MyComponent);
+  </script>
 
   <!-- Theme used for syntax highlighted code -->
   <link rel="stylesheet" href="plugin/highlight/monokai.css" />

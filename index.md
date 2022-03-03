@@ -27,6 +27,8 @@
 
 # Geospatial Components
 
+[![Map Viewer with Charts](img/chart1.png)]
+
 ---
 
 # Background
@@ -38,14 +40,14 @@
   - Re-use entire workflows in the new map viewer and other applications
   - Framework agnostic
 
-[![Map Viewer with Charts](img/chart1.png)]
-
 ---
 
 # What are they?
 
 - Higher level componnets
 - GIS functionality (JSAPI)
+
+[![Map Viewer with Charts](img/chart.png)]
 
 ---
 
@@ -119,7 +121,7 @@
 
 ---
 
-# Consistency <calcite-icon icon="thumbs-up"></calcite-icon>
+# Consistency <calcite-icon scale="l" icon="thumbs-up"></calcite-icon>
 
 - Consistent UX
   - Esri identity (look & feel)
@@ -129,7 +131,7 @@
 
 ---
 
-# Efficiency <calcite-icon icon="thumbs-up"></calcite-icon>
+# Efficiency <calcite-icon scale="l" icon="thumbs-up"></calcite-icon>
 
 - Reduced effort & cost
   - Apps follow agreed upon designs workflows
@@ -140,7 +142,7 @@
 
 ---
 
-# Accessibility <calcite-icon icon="thumbs-up"></calcite-icon>
+# Accessibility <calcite-icon scale="l" icon="thumbs-up"></calcite-icon>
 
 - Follows [WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/) (W3 a11y guidelines)
   - Semantics
@@ -151,7 +153,7 @@
 
 ---
 
-# Standards-based <calcite-icon icon="thumbs-up"></calcite-icon>
+# Standards-based <calcite-icon scale="l" icon="thumbs-up"></calcite-icon>
 
 - Web components
   - W3C specification (future-proof)
@@ -196,13 +198,13 @@
 
 # Configuring Web Components
 
-Properties & Attributes
+## Properties & Attributes
 
 ```html
 <my-component prop="myValue"></my-component>
 ```
 
-Slots
+## Slots
 
 ```html
 <my-component><button slot="footer" /></my-component>
@@ -216,11 +218,11 @@ To customize certain regions
 
 ```html
 <calcite-card>
-  <h3 slot="title">Nicolas Cage</h3>
-  <img slot="thumbnail" src="https://www.placecage.com/c/300/136" />
-  <span slot="subtitle"
-    >Nicolas Kim Coppola, known professionally as Nicolas Cage, is an American
-    actor and filmmaker.</span
+  <h3 slot="title">Esri</h3>
+  <img slot="thumbnail" src="img/esri-card.jpeg" />
+  <span slot="subtitle">Esri is an international supplier
+     of geographic information system software, web GIS
+     and geodatabase management applications.</span
   >
 </calcite-card>
 ```
@@ -236,18 +238,18 @@ For default content placement
 ```html
 <calcite-split-button primary-text="My Button!">
   <calcite-dropdown-group>
-    <calcite-dropdown-item>Option 1</calcite-dropdown-item>
-    <calcite-dropdown-item>Option 2</calcite-dropdown-item>
-    <calcite-dropdown-item>Option 3</calcite-dropdown-item>
+    <calcite-dropdown-item>My Button's Option 1</calcite-dropdown-item>
+    <calcite-dropdown-item>My Button's Option 2</calcite-dropdown-item>
+    <calcite-dropdown-item>My Button's Option 3</calcite-dropdown-item>
   </calcite-dropdown-group>
 </calcite-split-button>
 ```
 
 <calcite-split-button primary-text="My Button!">
   <calcite-dropdown-group>
-    <calcite-dropdown-item>Option 1</calcite-dropdown-item>
-    <calcite-dropdown-item>Option 2</calcite-dropdown-item>
-    <calcite-dropdown-item>Option 3</calcite-dropdown-item>
+    <calcite-dropdown-item>My Button's Option 1</calcite-dropdown-item>
+    <calcite-dropdown-item>My Button's Option 2</calcite-dropdown-item>
+    <calcite-dropdown-item>My Button's Option 3</calcite-dropdown-item>
   </calcite-dropdown-group>
 </calcite-split-button>
 
@@ -258,7 +260,8 @@ For default content placement
 ```js
 class MyComponent extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = `<h1>Hello world</h1>`;
+    let shadow = this.attachShadow({ mode: 'open' });
+    shadow.innerHTML = `<h2>Hello DevSummit!</h2>`;
   }
 }
 
@@ -268,6 +271,8 @@ customElements.define("my-component", MyComponent);
 ```html
 <my-component></my-component>
 ```
+
+<my-component></my-component>
 
 ---
 
@@ -282,7 +287,7 @@ customElements.define("my-component", MyComponent);
 [![Stencil.js](img/stencil-logo.png)](https://stenciljs.com/)
 
 - Toolchain for building Design Systems
-- Built by Ionic Framework team
+- Built by [Ionic framework](https://ionicframework.com/) team
 - Compiles Web Components
 - Virtual DOM, Typescript, and JSX
 - [Getting Started](https://stenciljs.com/docs/getting-started)
@@ -312,8 +317,7 @@ export class MyComponent {
 # Basic Component HTML Markup
 
 ```html
-<my-first-component name="Matt">
-</my-first-component>
+<my-first-component name="Matt"></my-first-component>
 ```
 
 When rendered, the browser will display `My name is Matt`
@@ -373,7 +377,6 @@ When rendered, the browser will display `My name is Matt`
 - [Charts Components in Map Viewer](https://analysis-0.maps.arcgis.com/apps/mapviewer/index.html?webmap=cdd0cc7b23e04873b74f0f160dd2e7c9)
 - [Charts Components in Charts Viewer Instant App](https://analysis-0.maps.arcgis.com/apps/instant/charts/index.html?appid=076e071d336d4f0eb90fdf1c535ae379)
 
----
 ---
 
 <!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
