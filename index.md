@@ -222,8 +222,7 @@ To customize certain regions
   <img slot="thumbnail" src="img/esri-card.jpeg" />
   <span slot="subtitle">Esri is an international supplier
      of geographic information system software, web GIS
-     and geodatabase management applications.</span
-  >
+     and geodatabase management applications.</span>
 </calcite-card>
 ```
 
@@ -236,20 +235,20 @@ To customize certain regions
 For default content placement
 
 ```html
-<calcite-split-button primary-text="My Button!">
+<calcite-split-button scale="l" primary-text="My Button!">
   <calcite-dropdown-group>
-    <calcite-dropdown-item>My Button's Option 1</calcite-dropdown-item>
-    <calcite-dropdown-item>My Button's Option 2</calcite-dropdown-item>
-    <calcite-dropdown-item>My Button's Option 3</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 1</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 2</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 3</calcite-dropdown-item>
   </calcite-dropdown-group>
 </calcite-split-button>
 ```
 
-<calcite-split-button primary-text="My Button!">
+<calcite-split-button style="text-align: left" scale="l" primary-text="My Button!">
   <calcite-dropdown-group>
-    <calcite-dropdown-item>My Button's Option 1</calcite-dropdown-item>
-    <calcite-dropdown-item>My Button's Option 2</calcite-dropdown-item>
-    <calcite-dropdown-item>My Button's Option 3</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 1</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 2</calcite-dropdown-item>
+    <calcite-dropdown-item>Option 3</calcite-dropdown-item>
   </calcite-dropdown-group>
 </calcite-split-button>
 
@@ -364,27 +363,30 @@ Some of the Geospatial web components/Micro-Frontends used in Map Viewer
 
 ---
 
-# Benefits of Micro frontend Architecture
+# Micro frontend Benefits
 
 - Independence
-  - Each Micro App is self-contained and independently upgradable.
+  - Self-contained and independently upgradable
 - Easier change management
-  - Since we are building smaller component based micro apps which are independent from the application it simplifies change management.
+  - Smaller component based micro apps
+  - Independent from the application
+  - Simplifies change management
 - Speed of Development
-  - The autonomy in decision making allows the component teams to deliver the features much more faster than the traditional model.
+  - Deliver the features faster
 - Mission Focussed
-  - Each feature being built as Micro Applications using web component means it is more focussed in its mission to develop, test and refactor than monolith.
+  - Focussed in its mission to develop, test and refactor
 
-  ---
+---
 
 # Geospatial components patterns & practices
 
 - Micro frontend composition in the browser
-  - Using Web Components provides us a client-side composition approach to compose these different features to map viewer.
+  - Using Web Components provides us a client-side composition approach
 - Shared Design System
-  - To provide consistent look and feel across all frontend components using design system like calcite is essential.
-- "Props Down, Events Up" communication pattern is used from the MapViewer App to pass different required properties in each micro app based components.
-- It is recommended the Components get the application state via Props than having shared state with the Application Shell.
+  - To provide consistent look and feel across all frontend components
+- "Props Down, Events Up" communication pattern
+  - Pass different required properties
+- Components get the application state via Props
 
 ---
 
