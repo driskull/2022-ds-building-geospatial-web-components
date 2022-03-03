@@ -27,11 +27,17 @@
 
 # Geospatial Components
 
-![Map Viewer with Charts](img/chart1.png)
-
----
-
-![Map Viewer with Charts](img/chart.png)
+<style>
+.grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 500px 500px;
+}
+</style>
+<div class="grid">
+  <img src="img/chart.png" />
+  <img src="img/chart1.png" />
+</div>
 
 ---
 
