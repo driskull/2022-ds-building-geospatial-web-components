@@ -67,14 +67,14 @@
 
 [![jsapi](img/jsapi.png)](https://developers.arcgis.com/javascript/latest/)
 
-Modern (ES Modules)
+Modern (ES Modules: Native module format)
 
 ```js
 import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
 ```
 
-Legacy ([Esri Loader](https://github.com/Esri/esri-loader))
+Legacy ([esri-loader](https://github.com/Esri/esri-loader))
 
 ```js
 import { loadModules } from 'esri-loader';
