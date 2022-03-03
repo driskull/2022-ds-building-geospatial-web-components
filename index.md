@@ -27,7 +27,7 @@
 
 # Geospatial Components
 
-[![Map Viewer with Charts](img/chart1.png)]
+![Map Viewer with Charts](img/chart1.png)
 
 ---
 
@@ -47,7 +47,7 @@
 - Higher level componnets
 - GIS functionality (JSAPI)
 
-[![Map Viewer with Charts](img/chart.png)]
+![Map Viewer with Charts](img/chart.png)
 
 ---
 
@@ -188,11 +188,11 @@
   - Browser-compatible elements
   - Use native APIs
   - DOM element lifecycle
-- HTML slotting
-- `<slot>` elements
 - Shadow DOM
   - Encapsulates component HTML & CSS
   - `<slot>` tag for distributing content
+- HTML slotting
+  - `slot` attribute
 
 ---
 
