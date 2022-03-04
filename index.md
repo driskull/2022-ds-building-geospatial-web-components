@@ -211,8 +211,10 @@ To customize certain regions
 <calcite-card>
   <h3 slot="title">Esri</h3>
   <img slot="thumbnail" src="img/esri-card.jpeg" />
-  <span slot="subtitle">Esri is an international supplier
-  of geographic information system software...</span>
+  <span slot="subtitle"
+    >Esri is an international supplier of geographic information system
+    software...</span
+  >
 </calcite-card>
 ```
 
@@ -373,6 +375,18 @@ Geospatial web components/Micro-Frontends used in Map Viewer
   - Deliver the features faster
 - Mission Focussed
   - Focussed in its mission to develop, test and refactor
+
+---
+
+# Micro frontend Benefits
+
+- Break up monolith applications
+  - Self-contained and independent from the host application
+- Smaller, cohesive and better maintainable codebases
+  - Different teams can develop, test and deploy independent features from start to end on themselves.
+  - Development and deployments become faster
+  - Easier for new developers to get started
+- Reusable across different applications/frameworks
 
 ---
 
