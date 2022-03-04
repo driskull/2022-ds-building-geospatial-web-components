@@ -97,7 +97,7 @@ loadModules(["esri/core/Map", "esri/views/MapView"]); // AMD Format
 
 Esri's design system
 
-[![calcite](img/calcite.png)](https://developers.arcgis.com/calcite-design-system/)
+![zoology](img/zoology.png)
 
 ---
 
@@ -122,12 +122,6 @@ Esri's design system
   - Internal & external use
     - [Developer subscription](https://developers.arcgis.com/pricing/build-arcgis-solutions/)
   - Easily build beautiful consistent apps
-
----
-
-# Types of Components
-
-![zoology](img/zoology.png)
 
 ---
 
@@ -210,12 +204,7 @@ myComponent.myMethod();
 
 ## Slots
 
-```html
-<my-component>
-  My component's content
-  <button slot="footer">My footer button</button>
-</my-component>
-```
+Allows end user to place content within a component
 
 ---
 
