@@ -118,8 +118,6 @@ Esri's design system
 
 - Web Components for Calcite Design System
   - 50+ web components
-    - Ready to use
-    - Reusable
     - Provides a library of patterns
   - Internal & external use
     - [Developer subscription](https://developers.arcgis.com/pricing/build-arcgis-solutions/)
@@ -182,7 +180,7 @@ Esri's design system
 - Shadow DOM
   - Encapsulates component HTML & CSS
   - `<slot>` tag for distributing content
-- HTML slotting
+- HTML templating & slotting
   - `slot` attribute
 
 ---
@@ -297,10 +295,12 @@ customElements.define("my-component", MyComponent);
 
 - Toolchain for building Design Systems
 - Built by [Ionic framework](https://ionicframework.com/) team
-- Virtual DOM, Typescript, and JSX
+- Typescript & JSX
 - Compiles Web Components
 - [Getting Started](https://stenciljs.com/docs/getting-started)
-- Alternatives: Lit, Frameworks => web components
+- Alternatives
+  - [Lit](https://lit.dev/)
+  - Frameworks => web components
 
 ---
 
