@@ -334,6 +334,12 @@ When rendered, the browser will display `My name is Matt`
 
 ---
 
+# Map viewer
+
+<img src="img/mv.png" />
+
+---
+
 # Map viewer Architecture
 
 <!-- todo image -->
@@ -366,14 +372,15 @@ Map Viewer is built as a micro frontend based application as a composition of fe
 
 # Example Geospatial Components
 
-Some of the Geospatial web components/Micro-Frontends used in Map Viewer
+Geospatial web components/Micro-Frontends used in Map Viewer
 
-- Pop-up configurator
-- Charts
-- Effects
-- Sketch
+- Pop-up
+- Chart
+- Effect
+- Table
 - Label
 - Clustering
+- ...etc
 
 ---
 
