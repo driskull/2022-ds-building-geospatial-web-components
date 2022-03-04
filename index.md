@@ -365,21 +365,6 @@ Geospatial web components/Micro-Frontends used in Map Viewer
 
 # Micro frontend Benefits
 
-- Independence
-  - Self-contained and independently upgradable
-- Easier change management
-  - Smaller component based micro apps
-  - Independent from the application
-  - Simplifies change management
-- Speed of Development
-  - Deliver the features faster
-- Mission Focussed
-  - Focussed in its mission to develop, test and refactor
-
----
-
-# Micro frontend Benefits
-
 - Break up monolith applications
   - Self-contained and independent from the host application
 - Smaller, cohesive and better maintainable codebases
