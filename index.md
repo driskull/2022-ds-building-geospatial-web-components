@@ -27,13 +27,6 @@
 
 # Geospatial Components
 
-<style>
-.grid {
-  display: grid;
-  grid-gap: 0;
-  grid-template-columns: 50% 50%;
-}
-</style>
 <div class="grid">
   <label><img src="img/chart.gif" />Charts</label>
   <label><img src="img/label.gif" />Label</label>
@@ -43,16 +36,9 @@
 
 # Geospatial Components
 
-<style>
-.grid {
-  display: grid;
-  grid-gap: 0;
-  grid-template-columns: 50% 50%;
-}
-</style>
 <div class="grid">
-  <label><img src="img/effects.png" />Effects</label>  
-  <label><img src="img/sketch.jpeg" />Sketch</label>  
+  <label><img src="img/effects.png" />Effects</label>
+  <label><img src="img/sketch.jpeg" />Sketch</label>
 </div>
 
 ---
@@ -225,10 +211,8 @@ To customize certain regions
 <calcite-card>
   <h3 slot="title">Esri</h3>
   <img slot="thumbnail" src="img/esri-card.jpeg" />
-  <span slot="subtitle"
-    >Esri is an international supplier of geographic information system
-    software, web GIS and geodatabase management applications.</span
-  >
+  <span slot="subtitle">Esri is an international supplier of geographic
+  information system software, web GIS and geodatabase management applications.</span>
 </calcite-card>
 ```
 
@@ -344,13 +328,6 @@ When rendered, the browser will display `My name is Matt`
 
 <!-- todo image -->
 
-<style>
-.grid {
-  display: grid;
-  grid-gap: 0;
-  grid-template-columns: 50% 50%;
-}
-</style>
 <div class="grid">
   <img src="img/mapviewer-architecture.png" />
   <img src="img/chart1.png" />
