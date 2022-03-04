@@ -330,19 +330,13 @@ When rendered, the browser will display `My name is Matt`
 
 ---
 
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
-
-# Patterns & Practices
-
----
-
-<!-- .slide: data-background="img/2022/dev-summit/bg-7.png" data-background-size="cover" -->
-
 # Application Architecture
 
 ---
 
 # Map viewer Architecture
+
+<!-- todo image -->
 
 <style>
 .grid {
@@ -360,7 +354,7 @@ When rendered, the browser will display `My name is Matt`
 
 # Host application
 
-It provides the application shell which is built using the calcite components based on the ArcGIS for JavaScript Widget framework
+It provides the application shell which is built using the calcite components based on the ArcGIS API for JavaScript Widget framework
 
 ---
 
@@ -374,11 +368,12 @@ Map Viewer is built as a micro frontend based application as a composition of fe
 
 Some of the Geospatial web components/Micro-Frontends used in Map Viewer
 
-- Popup configurator
+- Pop-up configurator
+- Charts
 - Effects
 - Sketch
-- Charts
-- Symbology
+- Label
+- Clustering
 
 ---
 
