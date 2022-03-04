@@ -14,10 +14,10 @@
   - Background <!-- Matt -->
   - Composition <!-- Matt -->
   - Architecture <!-- Matt -->
-- Patterns & Practices <!-- Dhrumil -->
 - Application Architecture <!-- Dhrumil -->
 - Demo: Esri apps using geospatial components <!-- Dhrumil -->
-- Demo: App using geospatial components <!-- Dhrumil & Matt -->
+- Patterns & Practices <!-- Dhrumil -->
+- Demo: Sample app using geospatial components <!-- Dhrumil & Matt -->
 
 ---
 
@@ -361,6 +361,17 @@ Geospatial web components/Micro-Frontends used in Map Viewer
 
 ---
 
+# Demo: Esri apps using geospatial components
+
+<!-- - Map viewer
+- Scene viewer
+- arcgis.com
+- Instant apps
+- [Charts Components in Map Viewer](https://analysis-0.maps.arcgis.com/apps/mapviewer/index.html?webmap=cdd0cc7b23e04873b74f0f160dd2e7c9)
+- [Charts Components in Charts Viewer Instant App](https://analysis-0.maps.arcgis.com/apps/instant/charts/index.html?appid=076e071d336d4f0eb90fdf1c535ae379) -->
+
+---
+
 # Micro frontend Benefits
 
 - Break up monolith applications
@@ -386,9 +397,6 @@ Geospatial web components/Micro-Frontends used in Map Viewer
 ---
 
 # Demo: Sample app using geospatial components
-
-- [Charts Components in Map Viewer](https://analysis-0.maps.arcgis.com/apps/mapviewer/index.html?webmap=cdd0cc7b23e04873b74f0f160dd2e7c9)
-- [Charts Components in Charts Viewer Instant App](https://analysis-0.maps.arcgis.com/apps/instant/charts/index.html?appid=076e071d336d4f0eb90fdf1c535ae379)
 
 ---
 
