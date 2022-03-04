@@ -13,11 +13,9 @@
 - Geospatial Components <!-- Matt -->
   - Background <!-- Matt -->
   - Composition <!-- Matt -->
-  - Component Architecture <!-- Matt -->
+  - Architecture <!-- Matt -->
 - Patterns & Practices <!-- Dhrumil -->
-  - JSAPI Integration <!-- Dhrumil -->
 - Application Architecture <!-- Dhrumil -->
-  - Benefits <!-- Dhrumil -->
 - Demo: Esri apps using geospatial components <!-- Dhrumil -->
 - Demo: App using geospatial components <!-- Dhrumil & Matt -->
 
