@@ -86,7 +86,7 @@ Legacy ([esri-loader](https://github.com/Esri/esri-loader))
 
 ```js
 import { loadModules } from "esri-loader";
-loadModules(["esri/core/Map", "esri/views/MapView"]);
+loadModules(["esri/core/Map", "esri/views/MapView"]); // AMD Format
 ```
 
 ---
@@ -95,11 +95,13 @@ loadModules(["esri/core/Map", "esri/views/MapView"]);
 
 # Calcite
 
+Esri's design system
+
 [![calcite](img/calcite.png)](https://developers.arcgis.com/calcite-design-system/)
 
 ---
 
-# Calcite: Esri's design system
+# Calcite
 
 - Visual language for products
   - [Design guidelines](https://developers.arcgis.com/calcite-design-system/foundations/colors/)
@@ -125,15 +127,15 @@ loadModules(["esri/core/Map", "esri/views/MapView"]);
 
 ---
 
-# Componenent Documentation
+# Types of Components
 
-[![components](img/components.png)](https://developers.arcgis.com/calcite-design-system/components/)
+![zoology](img/zoology.png)
 
 ---
 
-# Types
+# Componenent Documentation
 
-![zoology](img/zoology.png)
+[![components](img/components.png)](https://developers.arcgis.com/calcite-design-system/components/)
 
 ---
 
@@ -143,7 +145,7 @@ loadModules(["esri/core/Map", "esri/views/MapView"]);
 - Efficiency
   - Apps follow agreed upon designs workflows
   - Speed up development timelines
-- Standards-based
+- Standards-based web components
   - W3C specification (future-proof)
   - Encapsulation (Shadow DOM)
   - Familiarity (HTML)
@@ -187,16 +189,34 @@ loadModules(["esri/core/Map", "esri/views/MapView"]);
 
 # Configuring Web Components
 
-## Properties & Attributes
+## Properties, Attributes, Methods
+
+HTML
 
 ```html
-<my-component prop="myValue"></my-component>
+<my-component my-prop="myValue" my-boolean-prop></my-component>
 ```
+
+JavaScript
+
+```js
+const myComponent = document.querySelector("my-component");
+myComponent.myProp = "myValue";
+myComponent.myBooleanProp = true;
+myComponent.myMethod();
+```
+
+---
+
+# Configuring Web Components
 
 ## Slots
 
 ```html
-<my-component><button slot="footer" /></my-component>
+<my-component>
+  My component's content
+  <button slot="footer">My footer button</button>
+</my-component>
 ```
 
 ---
