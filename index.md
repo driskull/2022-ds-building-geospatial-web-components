@@ -211,10 +211,10 @@ To customize certain regions
 <calcite-card>
   <h3 slot="title">Esri</h3>
   <img slot="thumbnail" src="img/esri-card.jpeg" />
-  <span slot="subtitle"
-    >Esri is an international supplier of geographic information system
-    software...</span
-  >
+  <span slot="subtitle">
+    Esri is an international supplier of geographic information system
+    software...
+  </span>
 </calcite-card>
 ```
 
