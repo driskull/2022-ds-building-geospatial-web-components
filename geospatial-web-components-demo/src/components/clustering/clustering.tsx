@@ -9,6 +9,12 @@ import { DisplayType } from "../label/_utils";
   shadow: true
 })
 export class Clustering {
+  // --------------------------------------------------------------------------
+  //
+  //  Properties
+  //
+  // --------------------------------------------------------------------------
+
   /**
    * arcgis/core/views/MapView: https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html
    */
@@ -18,6 +24,12 @@ export class Clustering {
    * arcgis/core/layers/FeatureLayer: https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html
    */
   @Prop() layer: __esri.FeatureLayer;
+
+  // --------------------------------------------------------------------------
+  //
+  //  Events
+  //
+  // --------------------------------------------------------------------------
 
   /**
    * Emitted when featureReduction has been updated.
@@ -29,6 +41,12 @@ export class Clustering {
    */
   @Event() internalFeatureReductionUpdated: EventEmitter;
 
+  // --------------------------------------------------------------------------
+  //
+  //  State
+  //
+  // --------------------------------------------------------------------------
+
   @State() hasFeatureReduction: boolean = null;
 
   @State() clusterRadius: number = 37.5; // 50px
@@ -38,6 +56,12 @@ export class Clustering {
   @State() clusterSizeMax: number = 37.5; // 50px
 
   @State() showLabelPanel = false;
+
+  // --------------------------------------------------------------------------
+  //
+  //  Private Properties
+  //
+  // --------------------------------------------------------------------------
 
   clusteringRadiusMinVal = 9; // 12px
 
@@ -51,10 +75,22 @@ export class Clustering {
 
   labelPanel: HTMLCalcitePanelElement;
 
+  // --------------------------------------------------------------------------
+  //
+  //  Lifecycle
+  //
+  // --------------------------------------------------------------------------
+
   // Called after every re-render. Not called on initial draw.
   componentDidUpdate(): void {
     this.internalFeatureReductionUpdated.emit();
   }
+
+  // --------------------------------------------------------------------------
+  //
+  //  Event Listeners
+  //
+  // --------------------------------------------------------------------------
 
   // clone featureReduction to update map.
   @Listen("internalFeatureReductionUpdated")
@@ -65,6 +101,12 @@ export class Clustering {
     // for external clients
     this.featureReductionUpdated.emit();
   }
+
+  // --------------------------------------------------------------------------
+  //
+  //  Private Methods
+  //
+  // --------------------------------------------------------------------------
 
   toggleClustering = async (event: CustomEvent) => {
     const checked = (event.target as HTMLCalciteSwitchElement).checked;
@@ -113,7 +155,12 @@ export class Clustering {
     this.clusterSizeMax = slider.maxValue;
   };
 
-  // rendor methods
+  // --------------------------------------------------------------------------
+  //
+  //  Render Methods
+  //
+  // --------------------------------------------------------------------------
+
   render(): VNode {
     // enable disable clustering
     const clusterSwitch = (
