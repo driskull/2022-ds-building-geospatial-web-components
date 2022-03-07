@@ -337,10 +337,7 @@ When rendered, the browser will display `My name is Matt`
 
 <!-- todo image -->
 
-<div class="grid">
-  <img src="img/mapviewer-architecture.png" />
-  <img src="img/chart1.png" />
-</div>
+<img src="img/mapviewer-architecture.png" />
 
 ---
 
