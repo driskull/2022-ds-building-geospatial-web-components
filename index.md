@@ -101,7 +101,7 @@ Esri's design system
 
 ---
 
-# Calcite
+# Calcite Design System
 
 - Visual language for products
   - [Design guidelines](https://developers.arcgis.com/calcite-design-system/foundations/colors/)
@@ -208,7 +208,7 @@ Allows end user to place content within a component
 
 ---
 
-# Named Slots
+# Named Component Slots
 
 To customize certain regions
 
@@ -227,7 +227,7 @@ To customize certain regions
 
 ---
 
-# Default Slots
+# Default Component Slot
 
 For default content placement
 
@@ -319,7 +319,9 @@ export class MyComponent {
 <my-first-component name="Matt"></my-first-component>
 ```
 
-When rendered, the browser will display `My name is Matt`
+When rendered, the browser will display
+
+`My name is Matt`
 
 ---
 
