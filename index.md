@@ -26,8 +26,8 @@
 # Geospatial Components
 
 <div class="grid">
-  <label><img src="img/chart.gif" />Charts</label>
-  <label><img src="img/label.gif" />Label</label>
+  <label><img height="280" src="img/chart.gif" />Charts</label>
+  <label><img height="280" src="img/label.gif" />Label</label>
 </div>
 
 ---
@@ -35,8 +35,8 @@
 # Geospatial Components
 
 <div class="grid">
-  <label><img src="img/effects.png" />Effects</label>
-  <label><img src="img/sketch.jpeg" />Sketch</label>
+  <label><img height="280" src="img/effects.png" />Effects</label>
+  <label><img height="280" src="img/sketch.jpeg" />Sketch</label>
 </div>
 
 ---
