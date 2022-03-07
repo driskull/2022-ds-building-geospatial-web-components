@@ -60,16 +60,15 @@ graph TD;
   esri-ds2022-label --> calcite-switch
   esri-ds2022-label --> calcite-flow
   esri-ds2022-label --> calcite-panel
+  esri-ds2022-label-content --> esri-ds2022-label-content-style
   esri-ds2022-label-content --> calcite-label
   esri-ds2022-label-content --> calcite-dropdown
   esri-ds2022-label-content --> calcite-button
   esri-ds2022-label-content --> calcite-dropdown-group
   esri-ds2022-label-content --> calcite-dropdown-item
-  esri-ds2022-label-content --> esri-ds2022-label-content-style
   esri-ds2022-label-content --> calcite-block
   esri-ds2022-label-content --> calcite-icon
   esri-ds2022-label-content --> calcite-action
-  calcite-dropdown-item --> calcite-icon
   esri-ds2022-label-content-style --> calcite-label
   esri-ds2022-label-content-style --> calcite-input
   esri-ds2022-label-content-style --> calcite-color-picker
@@ -95,6 +94,7 @@ graph TD;
   calcite-block --> calcite-loader
   calcite-block --> calcite-action-menu
   calcite-handle --> calcite-icon
+  calcite-dropdown-item --> calcite-icon
   calcite-fab --> calcite-button
   style esri-ds2022-map-viewer fill:#f9f,stroke:#333,stroke-width:4px
 ```
