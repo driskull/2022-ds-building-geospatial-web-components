@@ -12,7 +12,19 @@ import { DisplayType } from "../_utils";
   shadow: true
 })
 export class LabelContent {
+  //--------------------------------------------------------------------------
+  //
+  //  Element
+  //
+  //--------------------------------------------------------------------------
+
   @Element() hostElement: HTMLEsriDs2022LabelContentElement;
+
+  // --------------------------------------------------------------------------
+  //
+  //  Properties
+  //
+  // --------------------------------------------------------------------------
 
   // current label class based on which this component is rendered
   @Prop() labelClass: __esri.LabelClass;
@@ -26,6 +38,12 @@ export class LabelContent {
   // feature or cluster
   @Prop() displayType: DisplayType;
 
+  // --------------------------------------------------------------------------
+  //
+  //  Events
+  //
+  // --------------------------------------------------------------------------
+
   // emit when this label class needs to be deleted
   @Event() labelContentDeleted: EventEmitter;
 
@@ -38,6 +56,12 @@ export class LabelContent {
   // emit when main panel should be disabled/enabled
   @Event() disableLabelPanel: EventEmitter;
 
+  // --------------------------------------------------------------------------
+  //
+  //  Private Properties
+  //
+  // --------------------------------------------------------------------------
+
   dropdownElement: HTMLCalciteDropdownElement;
 
   dropdownButton: HTMLCalciteButtonElement;
@@ -49,6 +73,12 @@ export class LabelContent {
   scaleRangeSliderWatch: __esri.WatchHandle;
 
   mapViewScaleWatch: __esri.WatchHandle;
+
+  // --------------------------------------------------------------------------
+  //
+  //  Lifecycle
+  //
+  // --------------------------------------------------------------------------
 
   connectedCallback() {
     this.createSlider();
@@ -63,6 +93,12 @@ export class LabelContent {
     this.scaleRangeSlider?.scheduleRender();
   }
 
+  // --------------------------------------------------------------------------
+  //
+  //  Event Listeners
+  //
+  // --------------------------------------------------------------------------
+
   @Listen("closeLabelPopovers", { target: "window" })
   closeLabelPopoversHandler(): void {
     if (this.labelStyle) {
@@ -75,6 +111,12 @@ export class LabelContent {
     }
     this.disableLabelPanel.emit(false);
   }
+
+  // --------------------------------------------------------------------------
+  //
+  //  Private Methods
+  //
+  // --------------------------------------------------------------------------
 
   getDisplayFieldName(): string {
     return this.labelClass.getLabelExpressionSingleField();
@@ -137,6 +179,12 @@ export class LabelContent {
       this.scaleRangeSlider.scheduleRender()
     );
   };
+
+  // --------------------------------------------------------------------------
+  //
+  //  Render Methods
+  //
+  // --------------------------------------------------------------------------
 
   render(): VNode {
     // dropdown for list of fields

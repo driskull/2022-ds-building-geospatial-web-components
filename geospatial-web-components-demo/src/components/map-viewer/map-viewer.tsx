@@ -9,13 +9,51 @@ import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
   shadow: true
 })
 export class MapViewer {
+  // --------------------------------------------------------------------------
+  //
+  //  Properties
+  //
+  // --------------------------------------------------------------------------
+
   @Prop() mapTitle = "Geospatial web components demo";
 
+  // --------------------------------------------------------------------------
+  //
+  //  State
+  //
+  // --------------------------------------------------------------------------
+
   @State() hasChanges = false;
+
+  // --------------------------------------------------------------------------
+  //
+  //  Private Properties
+  //
+  // --------------------------------------------------------------------------
 
   mapView: __esri.MapView;
 
   featureLayer: __esri.FeatureLayer;
+
+  // --------------------------------------------------------------------------
+  //
+  //  Lifecycle
+  //
+  // --------------------------------------------------------------------------
+
+  connectedCallback() {
+    this.createMap();
+  }
+
+  disconnectedCallback() {
+    this.destroyMap();
+  }
+
+  // --------------------------------------------------------------------------
+  //
+  //  Private Methods
+  //
+  // --------------------------------------------------------------------------
 
   async createMap(): Promise<void> {
     this.featureLayer = new FeatureLayer({
@@ -39,13 +77,11 @@ export class MapViewer {
     this.mapView?.destroy();
   }
 
-  connectedCallback() {
-    this.createMap();
-  }
-
-  disconnectedCallback() {
-    this.destroyMap();
-  }
+  // --------------------------------------------------------------------------
+  //
+  //  Render Methods
+  //
+  // --------------------------------------------------------------------------
 
   render() {
     return (

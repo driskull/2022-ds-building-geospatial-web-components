@@ -9,11 +9,23 @@ import { Component, h, Prop, Event, EventEmitter, Listen, VNode } from "@stencil
   shadow: true
 })
 export class LabelContentStyle {
+  // --------------------------------------------------------------------------
+  //
+  //  Properties
+  //
+  // --------------------------------------------------------------------------
+
   // place popover based on this element
   @Prop() labelContentRefElement: HTMLElement;
 
   // current label class
   @Prop() labelClass: __esri.LabelClass;
+
+  // --------------------------------------------------------------------------
+  //
+  //  Events
+  //
+  // --------------------------------------------------------------------------
 
   // emit when user makes changes to labelclass symbol
   @Event() labelContentStyleChanges: EventEmitter;
@@ -21,11 +33,23 @@ export class LabelContentStyle {
   // close when user hits dismissed
   @Event() closeLabelPopovers: EventEmitter;
 
+  // --------------------------------------------------------------------------
+  //
+  //  Event Listeners
+  //
+  // --------------------------------------------------------------------------
+
   // listen when user hits dismiss on calcite panel
   @Listen("calcitePanelDismissedChange")
   calcitePanelDismissedChangeHandler(): void {
     this.closeLabelPopovers.emit();
   }
+
+  // --------------------------------------------------------------------------
+  //
+  //  Private Methods
+  //
+  // --------------------------------------------------------------------------
 
   fontSizeSelectionChange = (event: CustomEvent): void => {
     (this.labelClass.symbol as __esri.TextSymbol).font.size = Number(event.detail.value) * 0.75;
@@ -46,6 +70,12 @@ export class LabelContentStyle {
     (this.labelClass.symbol as __esri.TextSymbol).yoffset = Number(event.detail.value);
     this.labelContentStyleChanges.emit();
   };
+
+  // --------------------------------------------------------------------------
+  //
+  //   Render Methods
+  //
+  // --------------------------------------------------------------------------
 
   render(): VNode {
     // change font size

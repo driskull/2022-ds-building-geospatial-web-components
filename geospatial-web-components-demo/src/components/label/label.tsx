@@ -10,6 +10,12 @@ import guid from "./_utils/guid";
   shadow: true
 })
 export class Label {
+  // --------------------------------------------------------------------------
+  //
+  //  Properties
+  //
+  // --------------------------------------------------------------------------
+
   /**
    * arcgis/core/views/MapView: https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html
    */
@@ -30,6 +36,12 @@ export class Label {
    */
   @Prop() labelPanel?: HTMLCalcitePanelElement;
 
+  // --------------------------------------------------------------------------
+  //
+  //  Events
+  //
+  // --------------------------------------------------------------------------
+
   /**
    * Emitted when label has been updated.
    */
@@ -45,17 +57,35 @@ export class Label {
    */
   @Event() closeLabelPopovers: EventEmitter;
 
+  // --------------------------------------------------------------------------
+  //
+  //  State
+  //
+  // --------------------------------------------------------------------------
+
   @State() hasLabelEnabled: boolean = null;
 
   @State() deleteLabelContent = false;
 
   @State() labelContents: VNode[] = [];
 
+  // --------------------------------------------------------------------------
+  //
+  //  Private Properties
+  //
+  // --------------------------------------------------------------------------
+
   labelingInfo: __esri.LabelClass[];
 
   panel: HTMLCalcitePanelElement;
 
   addLabelBtn: HTMLCalciteFabElement;
+
+  // --------------------------------------------------------------------------
+  //
+  //  Lifecycle
+  //
+  // --------------------------------------------------------------------------
 
   componentWillLoad(): void {
     // handle both feature and cluster labeling info
@@ -86,6 +116,12 @@ export class Label {
     this.internalLabelUpdated.emit();
   }
 
+  // --------------------------------------------------------------------------
+  //
+  //  Event Listeners
+  //
+  // --------------------------------------------------------------------------
+
   // clone labelingInfo to update map.
   @Listen("internalLabelUpdated")
   internalLabelUpdatedHandler(event: CustomEvent<boolean>): void {
@@ -111,6 +147,12 @@ export class Label {
       this.panel.disabled = event.detail;
     }
   }
+
+  // --------------------------------------------------------------------------
+  //
+  //  Private Methods
+  //
+  // --------------------------------------------------------------------------
 
   getLabelsVisible(): boolean {
     if (this.displayType === DisplayType.cluster) {
@@ -187,7 +229,12 @@ export class Label {
     this.labelContents = [...this.labelContents, this.labelContent(labelClass)];
   }
 
-  // rendor methods
+  // --------------------------------------------------------------------------
+  //
+  //  Render Methods
+  //
+  // --------------------------------------------------------------------------
+
   render(): VNode {
     // enable disable labeling and show labeling content
     const labelSwitchAndContent = (
