@@ -52,7 +52,9 @@
 
 ---
 
-# What are they?
+# Geospatial Components
+
+## What are they?
 
 - Higher level componnets
 - GIS functionality (JSAPI)
