@@ -52,7 +52,9 @@
 
 ---
 
-# What are they?
+# Geospatial Components
+
+## What are they?
 
 - Higher level componnets
 - GIS functionality (JSAPI)
@@ -300,6 +302,7 @@ import { Component, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "my-first-component",
+  shadow: true
 })
 export class MyComponent {
   // Name should be a public property on component
