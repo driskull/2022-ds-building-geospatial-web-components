@@ -175,6 +175,7 @@ export class LabelContent {
         this.internalLabelUpdated.emit();
       }
     );
+    // watch for changes to the scale in the map and update the scale range slider
     this.mapViewScaleWatch = this.mapView.watch("scale", () =>
       this.scaleRangeSlider.scheduleRender()
     );
