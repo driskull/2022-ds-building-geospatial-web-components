@@ -374,12 +374,13 @@ Geospatial web components/Micro-Frontends used in Map Viewer
 
 # Demo: Esri apps using geospatial components
 
-<!-- - Map viewer
+<!--
+  - Map viewer
 - Scene viewer
+  - Charts MV
+  - Charts Instant apps
 - arcgis.com
-- Instant apps
-- [Charts Components in Map Viewer](https://analysis-0.maps.arcgis.com/apps/mapviewer/index.html?webmap=cdd0cc7b23e04873b74f0f160dd2e7c9)
-- [Charts Components in Charts Viewer Instant App](https://analysis-0.maps.arcgis.com/apps/instant/charts/index.html?appid=076e071d336d4f0eb90fdf1c535ae379) -->
+-->
 
 ---
 
