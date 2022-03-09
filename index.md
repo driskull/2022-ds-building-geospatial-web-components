@@ -302,6 +302,7 @@ import { Component, Prop, h } from "@stencil/core";
 
 @Component({
   tag: "my-first-component",
+  shadow: true
 })
 export class MyComponent {
   // Name should be a public property on component
