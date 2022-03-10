@@ -25,6 +25,16 @@
 
 # Geospatial Components
 
+## What are they?
+
+- Higher level componnets
+- GIS workflow (JSAPI)
+
+---
+
+
+# Geospatial Components
+
 <div class="grid">
   <label><img height="280" src="img/chart.gif" />Charts</label>
   <label><img height="280" src="img/label.gif" />Label</label>
@@ -49,15 +59,6 @@
 - Need for components
   - Re-use entire workflows in the new map viewer and other applications
   - Framework agnostic
-
----
-
-# Geospatial Components
-
-## What are they?
-
-- Higher level componnets
-- GIS functionality (JSAPI)
 
 ---
 
