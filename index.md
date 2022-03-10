@@ -112,7 +112,6 @@ Esri's design system
   - Interactive documentation
     - Patterns & best practices
   - Reusable components
-- Closes the gap between designers and UI engineers
 
 ---
 
@@ -122,7 +121,6 @@ Esri's design system
   - 50+ web components
     - Provides a library of patterns
   - Internal & external use
-    - [Developer subscription](https://developers.arcgis.com/pricing/build-arcgis-solutions/)
   - Easily build beautiful consistent apps
 
 ---
@@ -142,7 +140,6 @@ Esri's design system
 - Standards-based web components
   - W3C specification (future-proof)
   - Encapsulation (Shadow DOM)
-  - Familiarity (HTML)
   - Framework agnostic (Can be used in any framework)
 - Accessibility (W3 Guidelines)
 
@@ -162,7 +159,6 @@ Esri's design system
 - Allows you to create reusable custom elements
   - `<my-custom-element>`
   - Functionality encapsulated
-  - Utilize them in your web apps
 - Supported by modern browsers
 
 ---
@@ -171,11 +167,11 @@ Esri's design system
 
 - Custom elements
   - Browser-compatible elements
-  - Use native APIs
-  - DOM element lifecycle
+  - Work just like other elements
 - Shadow DOM
   - Encapsulates component HTML & CSS
-  - `<slot>` tag for distributing content
+  - Isolated DOM
+  - `<slot>` tag for placeholder content
 - HTML templating & slotting
   - `slot` attribute
 
@@ -210,25 +206,6 @@ Allows end user to place content within a component
 
 ---
 
-# Named Component Slots
-
-To customize certain regions
-
-```html
-<calcite-card>
-  <h3 slot="title">Esri</h3>
-  <img slot="thumbnail" src="img/esri-card.jpeg" />
-  <span slot="subtitle">
-    Esri is an international supplier of geographic information system
-    software...
-  </span>
-</calcite-card>
-```
-
-<iframe width="310" height="310" data-src="snippets/card.html" data-preload scrolling="no"></iframe>
-
----
-
 # Default Component Slot
 
 For default content placement
@@ -250,6 +227,25 @@ For default content placement
     <calcite-dropdown-item>Option 3</calcite-dropdown-item>
   </calcite-dropdown-group>
 </calcite-split-button>
+
+---
+
+# Named Component Slots
+
+To customize certain regions
+
+```html
+<calcite-card>
+  <h3 slot="title">Esri</h3>
+  <img slot="thumbnail" src="img/esri-card.jpeg" />
+  <span slot="subtitle">
+    Esri is an international supplier of geographic information system
+    software...
+  </span>
+</calcite-card>
+```
+
+<iframe width="310" height="310" data-src="snippets/card.html" data-preload scrolling="no"></iframe>
 
 ---
 
@@ -295,7 +291,7 @@ customElements.define("my-component", MyComponent);
 
 ---
 
-# Basic Component Class
+# Basic Stencil.js Component
 
 ```jsx
 import { Component, Prop, h } from "@stencil/core";
