@@ -419,7 +419,10 @@ Geospatial web components/Micro-Frontends used in Map Viewer
 
 # Questions? 🤔
 
-<p>Slides + Demos: <a href="https://esriurl.com/ds2022-geo-web-components"><code>esriurl.com/ds2022-geo-web-components</code></a></p>
+<p>Slides + Demos:<br />
+<a href="https://esriurl.com/ds2022-geo-web-components"><code>esriurl.com/ds2022-geo-web-components</code></a></p>
+
+![QR Code](img/geospatial-qr.png)
 
 ---
 
